@@ -4,7 +4,7 @@ class User
 {
     protected $conn; //conexão
 
-    public function __construct(SQLite3 $connection) {
+    public function __construct(mysqli $connection) {
         $this->conn = $connection;
     }
 
@@ -15,22 +15,21 @@ class User
 
         $query = "INSERT INTO users ('name', 'email', 'password') values('{$name}','{$email}','{$senha_hash}')";
 
-        $result = $this->conn->exec($query);
+        $result = $this->conn->query($query);
 
         return $result;
     }
 
     public function find (string $email) {
-        $query = "SELECT * FROM users where email=:email";
+        $query = "SELECT * FROM users where email={$email}";
         
-        //prepara a consulta e gera um objeto SQLITE3Statetent
-        $sttm = $this->conn->prepare($query);        
+        $result = $this->conn->query($query);
 
-        //teste 1
-        $sttm->bindValue(':email', $email);
-        $result = $sttm->execute ();
-
-        return $result->fetchArray();
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

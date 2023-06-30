@@ -1,5 +1,19 @@
 <?php
 
+ // nome do banco de dados
+
+// Criar a conexão  
+
+function connection() : mysqli {
+    $host = '127.0.0.1'; // endereço do servidor MySQL
+    $usuario = 'root'; // nome de usuário do MySQL
+    $senha = ''; // senha do MySQL
+    $banco = 'db_teste';
+
+    return new mysqli($host, $usuario, $senha, $banco);
+}
+
+/*
 function connection() : SQLite3 {
     return new SQLite3('database.db');
 }
@@ -14,16 +28,18 @@ function save($query) {
     return $db->exec($query);
 }
 
-$connection = connection();
+$connection = connection(); /*/
 
-//cria as tableas de usuário e dos livros
-$connection->exec(
+
+$connection->query(
     "CREATE TABLE IF NOT EXISTS users(
         id INTEGER PRIMARY KEY,
         name TEXT,
         email TEXT,
         password TEXT)" 
 );
+
+/*
 
 $connection->exec("CREATE TABLE IF NOT EXISTS mesas(
     id INTEGER PRIMARY KEY,
@@ -37,4 +53,4 @@ $connection->exec("CREATE TABLE IF NOT EXISTS sessao(
     horario TIME,
     players TEXT,
     data_calendario DATE)"
-);
+);*/

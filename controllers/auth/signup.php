@@ -4,18 +4,17 @@ if (hasUser()) {
     header('Location: /dashboard');
 } else {
 
-    if(isset($_POST['username'], $_POST['email'], $_POST['senha'])) {
+    if(isset($_POST['username'], $_POST['senha'])) {
 
         $username = $_POST['username'];
-        $email = $_POST['email'];
+        //$email = $_POST['email'];
         $password = $_POST['senha'];
     
        $user = new User(connection());
         
-       $data = $user->find($email);   
+       $data = $user->find($username);   
     
        if ($data) {
-           $_SESSION['user'] = $data['name'];
            header('Location: /dashboard');
        } else {
            $retorno = $user->save($username, $email, $password);
