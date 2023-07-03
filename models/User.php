@@ -4,7 +4,7 @@ class User
 {
     protected $conn; //conexão
 
-    public function __construct(mysqli $connection) {
+    public function __construct(PDO $connection) {
         $this->conn = $connection;
     }
 
@@ -15,7 +15,7 @@ class User
 
         $query = "INSERT INTO users ('name', 'email', 'password') values('{$name}','{$email}','{$senha_hash}')";
 
-        $result = $this->conn->query($query);
+        $result = $this->conn->exec($query);
 
         return $result;
     }
@@ -23,13 +23,9 @@ class User
     public function find (string $email) {
         $query = "SELECT * FROM users where email={$email}";
         
-        $result = $this->conn->query($query);
+        $result = $this->conn->exec($query);
 
-        if ($result->num_rows > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $result;
     }
 
 }

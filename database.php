@@ -4,14 +4,29 @@
 
 // Criar a conexão  
 
-function connection() : mysqli {
+function connection() : PDO {
     $host = '127.0.0.1'; // endereço do servidor MySQL
     $usuario = 'root'; // nome de usuário do MySQL
     $senha = ''; // senha do MySQL
     $banco = 'db_teste';
 
-    return new mysqli($host, $usuario, $senha, $banco);
+    return new PDO("mysql: $banco, $usuario, $host, $senha");
 }
+
+function SQLITEconnection() : SQLite3 {
+    return new SQLite('database.db');
+}
+
+$connection = connection();
+
+$SQLITEconnection = SQLITEconnection();
+
+$userdata = "SELECT * FROM users";
+$userquery = "INSERT INTO users values {$userdata}";
+//$mesadata = "SELECT * FROM mesa";
+//$sessaodata = "SELECT * FROM sessao";
+
+
 
 /*
 function connection() : SQLite3 {
