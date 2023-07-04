@@ -5,23 +5,29 @@
 // Criar a conexão  
 
 function connection() : PDO {
-    $host = '127.0.0.1'; // endereço do servidor MySQL
-    $usuario = 'root'; // nome de usuário do MySQL
-    $senha = ''; // senha do MySQL
-    $banco = 'db_teste';
-
-    return new PDO("mysql: $banco, $usuario, $host, $senha");
+    //primeiro especifica qual é a database usada pelo pdo, o tipo tlgd
+    //depois o nome do banco de dados, o host o usuário e então a senha
+    return new PDO('mysql: dbname=db_teste;host=127.0.0.1', 'root', '');
 }
 
 function SQLITEconnection() : SQLite3 {
-    return new SQLite('database.db');
+    return new SQLite3('database.db');
 }
 
 $connection = connection();
 
 $SQLITEconnection = SQLITEconnection();
 
-$userdata = "SELECT * FROM users";
+$userdata = $SQLITEconnection->prepare("SELECT * FROM users");
+
+$userdata->execute();
+
+$teste = $userdata->fetchArray();
+
+echo print_r($teste);
+
+die();
+
 $userquery = "INSERT INTO users values {$userdata}";
 //$mesadata = "SELECT * FROM mesa";
 //$sessaodata = "SELECT * FROM sessao";
