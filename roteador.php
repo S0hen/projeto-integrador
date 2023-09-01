@@ -3,7 +3,7 @@
 Route::get('/', '/pages/home.html', '');
 Route::get('/register', '/pages/auth/register.html', '');
 Route::get('/login', '/pages/auth/login.html', '');
-Route::get('/dashboard', '/pages/dashboard.html', '');
+Route::get('/dashboard', '/pages/dashboard.php', '');
 
 Route::post('/signup', '/controllers/auth/signup.php', '');
 Route::post('/signin', '/controllers/auth/signin.php', '');
