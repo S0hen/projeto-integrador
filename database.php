@@ -23,7 +23,7 @@ $connection->exec(
         name TEXT,
         email TEXT,
         password TEXT,
-        type TEXT)" 
+        tipo TEXT)" 
 );
 
 $connection->exec("CREATE TABLE IF NOT EXISTS mesas(

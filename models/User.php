@@ -9,7 +9,7 @@ class User
     }
 
     public function save(string $name, string $email, string $password, string $type) : SQLite3Result | bool {
-        $query = "INSERT INTO users ('name', 'email', 'password', 'type') "
+        $query = "INSERT INTO users ('name', 'email', 'password', 'tipo') "
             . "values(:name,:email,:password,:type)";
 
         $sttm = $this->conn->prepare($query);
@@ -32,7 +32,7 @@ class User
 
     public function getType ($email) {
         $model = $this->find($email);
-        return $model["type"];
+        return $model["tipo"];
     }  
 }
 ?>
