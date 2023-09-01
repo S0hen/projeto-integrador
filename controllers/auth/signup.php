@@ -18,7 +18,7 @@ if (hasUser()) {
            $_SESSION['user'] = $data['name'];
            header('Location: /dashboard');
        } else {
-           $retorno = $user->save($username, $email, $password);
+           $retorno = $user->save($username, $email, $password, '');
            $_SESSION['user'] = $username;
            header('location: /dashboard');
        }
@@ -26,8 +26,6 @@ if (hasUser()) {
     } else {
         header('location:/signup');
     }
-
-
 }
 
-
+?>

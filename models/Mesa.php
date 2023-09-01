@@ -4,27 +4,28 @@ class Mesa {
 
     static $conn;
 
-    static function saveMesa(string $title, string $players, string $mestre) {
-
+    static function save(string $title, string $players, string $mestre) {
         self::$conn = connection();
+        $query = "INSERT INTO mesas ('title', 'players', 'mestre') "
+            . "values(:title,:players,:mestre)";
 
-        $query = "INSERT INTO mesas ('title', 'players', 'mestre') values('{$title}','{$players}','{$mestre}')";
+        $sttm = self::$conn->prepare($query);
 
-        $result = self::$conn->exec($query);
-
+        $sttm->bindValue(":title", $title);
+        $sttm->bindValue(":players", $players);
+        $sttm->bindValue(":mestre",$mestre);
+        $result = $sttm->execute();
         return $result;
     }
 
-    static function findMesa(string $title, string $players, string $mestre) {
-
+    static function find(string $title, string $players, string $mestre) {
         self::$conn = connection();
-
-        $query = "SELECT * FROM mesas where title={$title} and players={$players} and mestre={$mestre}";
-        
-        $result = self::$conn->exec($query);
-
-        return $result;
+        $query = "SELECT * FROM mesas WHERE title=:title and players=:players and mestre=:mestre";
+        $sttm = self::$conn->prepare($query);
+        $sttm->bindValue(":title", $title);
+        $sttm->bindValue(":players", $players);
+        $sttm->bindValue(":mestre", $mestre);
+        $result = $sttm->execute();
+        return $result->fetchArray();
     }
-
-
 }

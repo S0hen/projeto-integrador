@@ -1,5 +1,7 @@
 <?php
 
+$rota = Route::getRoute('/dashboard/mesas/criacao/criar');
+
 if (!hasUser()) {
     header('location: /');
 }
@@ -14,13 +16,15 @@ if (isset($_POST['title'], $_POST['players'], $_POST['mestre'])) {
     $players = $_POST['players'];
     $mestre = $_POST['mestre'];
 
-    $data = Mesa::findMesa($title, $players, $mestre);
+    $data = Mesa::find($title, $players, $mestre);
 
     if ($data) {
         header('location: /dashboard/mesas');
     } else {
-        $result = Mesa::saveMesa($title, $players, $mestre);
+        $result = Mesa::save($title, $players, $mestre);
         header('location: /dashboard/mesas');
     }
 
 }
+
+?>

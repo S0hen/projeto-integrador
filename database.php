@@ -22,7 +22,8 @@ $connection->exec(
         id INTEGER PRIMARY KEY,
         name TEXT,
         email TEXT,
-        password TEXT)" 
+        password TEXT,
+        type TEXT)" 
 );
 
 $connection->exec("CREATE TABLE IF NOT EXISTS mesas(

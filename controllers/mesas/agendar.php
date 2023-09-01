@@ -4,12 +4,11 @@ if (!hasUser()) {
     header('location: /');
 }
 
-$method = $_SERVER['REQUEST_METHOD'];
-
-
-/*if ($method == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     header('location: /dashboard');
-}*/
+}
+
+$rota = Route::getRoute('/dashboard/mesas/agendamento/agendar');
 
 if (isset($_POST['players'], $_POST['data'], $_POST['horario'])) {
     
@@ -17,13 +16,14 @@ if (isset($_POST['players'], $_POST['data'], $_POST['horario'])) {
     $data = $_POST['data'];
     $horario = $_POST['horario'];
 
-    $retorno = Sessao::findSessao($players, $horario, $data);
+    $retorno = Sessao::find($players, $horario, $data);
 
     if ($retorno) {
         header('location: /dashboard/mesas');
     } else {
-        $result = Sessao::saveSessao($players, $horario, $data);
+        $result = Sessao::save($players, $horario, $data);
         header('location: /dashboard/mesas');
     }
-
 }
+
+?>

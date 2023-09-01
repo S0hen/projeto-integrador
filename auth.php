@@ -10,4 +10,17 @@ function logout () : void {
     session_destroy();
 }
 
+function authorize (Route $rota) {
+
+    if ($rota->getProfile() != '') {
+            $email = $_SESSION['email'];
+            $model = new User(connection());
+    
+            if ($model->find($email)) {            
+                return $model->getType($email) === 'admin';
+            }
+            return false;
+        }
+        return false;
+    }
 ?>
