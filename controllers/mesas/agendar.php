@@ -10,18 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 $rota = Route::getRoute('/dashboard/mesas/agendamento/agendar');
 
-if (isset($_POST['players'], $_POST['data'], $_POST['horario'])) {
+if (isset($_POST['data'], $_POST['horario'])) {
     
-    $players = $_POST['players'];
     $data = $_POST['data'];
     $horario = $_POST['horario'];
 
-    $retorno = Sessao::find($players, $horario, $data);
+    $retorno = Sessao::find($horario, $data);
 
     if ($retorno) {
         header('location: /dashboard/mesas');
     } else {
-        $result = Sessao::save($players, $horario, $data);
+        $result = Sessao::save($horario, $data);
         header('location: /dashboard/mesas');
     }
 }

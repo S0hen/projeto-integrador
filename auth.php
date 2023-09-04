@@ -2,11 +2,11 @@
 
 //como usa muito essa merda só transformando em função
 function hasUser() : bool {
-    return isset($_SESSION['user']);
+    return isset($_SESSION['email']);
 }
 
 function logout () : void {
-    unset($_SESSION['user']);
+    unset($_SESSION['email']);
     session_destroy();
 }
 

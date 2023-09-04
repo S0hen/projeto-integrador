@@ -14,7 +14,7 @@ if (hasUser()) {
         $data = $user->find($email);   
         
         if ($data && password_verify($_POST['password'], $data['password'])) {
-            $_SESSION['user'] = $data['name'];
+            $_SESSION['email'] = $data['usu_email'];
             header('Location: /dashboard');
         } else {
             header('Location: /register');

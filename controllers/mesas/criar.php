@@ -10,18 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     header('location: /dashboard');
 }
 
-if (isset($_POST['title'], $_POST['players'], $_POST['mestre'])) {
+if (isset($_POST['titulo'], $_POST['descricao'], $_SESSION['email'])) {
     
-    $title = $_POST['title'];
-    $players = $_POST['players'];
-    $mestre = $_POST['mestre'];
+    $titulo = $_POST['titulo'];
+    $descricao = $_POST['descricao'];
+    $email = $_SESSION['email'];
 
-    $data = Mesa::find($title, $players, $mestre);
+    $user_obj = new User(connection());
+    $mestre = $user_obj->getID($email);
+
+    $data = Mesa::find($titulo, $mestre);
 
     if ($data) {
         header('location: /dashboard/mesas');
     } else {
-        $result = Mesa::save($title, $players, $mestre);
+        $result = Mesa::save($titulo, $mestre, $descricao);
         header('location: /dashboard/mesas');
     }
 

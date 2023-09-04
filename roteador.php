@@ -7,7 +7,7 @@ Route::get('/dashboard', '/pages/dashboard.php', '');
 
 Route::post('/signup', '/controllers/auth/signup.php', '');
 Route::post('/signin', '/controllers/auth/signin.php', '');
-Route::get('/signout', '/controllers/auth/singout.php', '');
+Route::get('/signout', '/controllers/auth/signout.php', '');
 
 Route::get('/dashboard/mesas', '/pages/mesas/exibirmesas.php', '');
 Route::get('/dashboard/mesas/agendamento', '/pages/mesas/agendamento.html', '');

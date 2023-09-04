@@ -4,28 +4,26 @@ class Sessao {
 
     static $conn;
 
-    static function save(string $players, string $horario, string $data) {
+    static function save(string $horario, string $data) {
         self::$conn = connection();
-        $query = "INSERT INTO sessao ('players', 'data_calendario', 'horario') "
-        . "values(:players,:data_calendario,:horario)";
+        $query = "INSERT INTO tb_sessoes ('ses_horario', 'ses_datacalendario') "
+        . "values(:ses_horario,:ses_datacalendario)";
 
         $sttm = self::$conn->prepare($query);
 
-        $sttm->bindValue(":players", $players);
-        $sttm->bindValue(":data_calendario", $data);
-        $sttm->bindValue(":horario", $horario);
+        $sttm->bindValue(":ses_horario", $horario);
+        $sttm->bindValue(":ses_datacalendario", $data);
         $result = $sttm->execute();
         return $result;
     }
 
-    static function find(string $players, string $horario, string $data) {
+    static function find(string $horario, string $data) {
 
         self::$conn = connection();
-        $query = "SELECT * FROM sessao WHERE horario=:horario and players=:players and data_calendario=:data_calendario";
+        $query = "SELECT * FROM tb_sessoes WHERE ses_horario=:horario and ses_datacalendario=:ses_datacalendario";
         $sttm = self::$conn->prepare($query);
         $sttm->bindValue(":horario", $horario);
-        $sttm->bindValue(":players", $players);
-        $sttm->bindValue(":data_calendario", $data);
+        $sttm->bindValue(":ses_datacalendario", $data);
         $result = $sttm->execute();
         return $result->fetchArray();
     }

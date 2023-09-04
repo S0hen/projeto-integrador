@@ -159,7 +159,8 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
       <div class="col-5">
         <main class="p-3 bg-dark bg-opacity-75 rounded-5">
             <?php
-              $username = $_SESSION['user'];
+              $user_obj = new User(connection());
+              $username = $user_obj->getName($_SESSION['email']);
               echo"<h1>Bem vindo, $username</h1>";
             ?>
             <p class="lead">O que você deseja fazer?</p>
@@ -169,7 +170,7 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
                 <a href="/dashboard/mesas/agendamento" class="btn btn-lg btn-light fw-bold border-white bg-white">Agendar Sessão</a>
             </p>
             <p class="lead">
-                <a href="/logout" class="btn btn-lg btn-light fw-bold border-white bg-white">Sair</a>
+                <a href="/signout" class="btn btn-lg btn-light fw-bold border-white bg-white">Sair</a>
             </p>
             <p>
                 <a href="#" class="text-light"> Checar mesas disponíveis</a>

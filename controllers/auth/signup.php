@@ -15,11 +15,11 @@ if (hasUser()) {
        $data = $user->find($email);   
     
        if ($data) {
-           $_SESSION['user'] = $data['name'];
+           $_SESSION['email'] = $data['usu_email'];
            header('Location: /dashboard');
        } else {
            $retorno = $user->save($username, $email, $password, '');
-           $_SESSION['user'] = $username;
+           $_SESSION['email'] = $email;
            header('location: /dashboard');
        }
     
