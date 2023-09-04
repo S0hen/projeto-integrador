@@ -28,11 +28,6 @@ class User
         $result = $sttm->execute();
         return $result->fetchArray();
     }
-
-    public function getType ($email) {
-        $model = $this->find($email);
-        return $model["tipo"];
-    }
     
     public function getID ($email) {
         $model = $this->find($email);
