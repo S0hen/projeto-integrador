@@ -11,6 +11,7 @@ include __DIR__ . '/auth.php';
 include __DIR__ . '/models/User.php';
 include __DIR__ . '/models/Mesa.php';
 include __DIR__ . '/models/Sessao.php';
+include __DIR__ . '/models/ParMesa.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
