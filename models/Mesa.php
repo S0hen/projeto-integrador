@@ -11,8 +11,6 @@ class Mesa {
 
         $sttm = self::$conn->prepare($query);
 
-        
-
         $sttm->bindValue(":mes_titulo", $titulo);
         $sttm->bindValue(":mes_descricao", $descricao);
         $sttm->bindValue(":mes_usu_idmestre", $idmestre);
