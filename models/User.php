@@ -44,19 +44,19 @@ class User
         return $model["usu_password"];
     }
 
-    public function updateName(string $newname, string $email) {
+    public function updateName(string $new_name, string $email) {
         $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_nome=:old_name";
         $sttm = $this->conn->prepare($query);
-        $sttm->bindValue(":new_name", $newname);
+        $sttm->bindValue(":new_name", $new_name);
         $sttm->bindValue(":old_name", $this->getName($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
-    public function updatePassword(string $newpassword, string $email) {
+    public function updatePassword(string $new_password, string $email) {
         $query = "UPDATE tb_usuarios SET usu_password=:new_name WHERE usu_name=:username";
         $sttm = $this->conn->prepare($query);
-        $sttm->bindValue(":new_password", password_hash($newpassword, PASSWORD_ARGON2I));
+        $sttm->bindValue(":new_password", password_hash($new_password, PASSWORD_ARGON2I));
         $sttm->bindValue(":username", $this->getName($email));
         $result = $sttm->execute();
         return $result->fetchArray();
