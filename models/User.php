@@ -47,5 +47,14 @@ class User
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+
+    public function updatePassword(string $newpassword, string $email) {
+        $query = "UPDATE tb_usuarios SET usu_password=:new_name WHERE usu_name=:username";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":new_password", password_hash($newpassword, PASSWORD_ARGON2I));
+        $sttm->bindValue(":username", $this->getName($email));
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
 }
 ?>
