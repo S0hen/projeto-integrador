@@ -16,7 +16,11 @@
     <?php
         if ($password_error === true) {
             echo '<script type="text/javascript">';
-            echo ' alert("Dados inalterados devido à senha incorreta")';  //not showing an alert box.
+            echo ' alert("Dados inalterados devido à senha incorreta")';
+            echo '</script>';
+        } else if ($changed === true) {
+            echo '<script type="text/javascript">';
+            echo ' alert("Dados alterados com sucesso")';
             echo '</script>';
         }
     ?>
