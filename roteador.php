@@ -17,6 +17,7 @@ Route::get('/dashboard/mesas/criacao', '/pages/mesas/criacao.html', '');
 Route::get('/dashboard/user', '/controllers/profile/index.php', '');
 Route::post('/dashboard/user/update/nome', '/controllers/profile/updatename.php', '');
 Route::post('/dashboard/user/update/senha', '/controllers/profile/updatepassword.php', '');
+Route::post('/dashboard/user/update/email', '/controllers/profile/updateemail.php', '');
 
 Route::post('/dashboard/mesas/criacao/criar', '/controllers/mesas/criar.php', '');
 Route::post('/dashboard/mesas/agendamento/agendar', '/controllers/mesas/agendar.php', '');
