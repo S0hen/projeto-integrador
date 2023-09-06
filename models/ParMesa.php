@@ -14,35 +14,21 @@ Class ParMesa {
         return $result;
     }
 
-    static function find(int $usu_id) {
-        self::$conn = connection();
-        $query = "SELECT * FROM tb_participamesa WHERE pam_usu_id=:pam_usu_id";
-
-        $sttm = self::$conn->prepare($query);
-
-        $sttm->bindValue(":pam_usu_id", $usu_id);
-        $result = $sttm->execute();
-        return $result->fetchArray();
-    }
-
     /* ERRO AQUI */
-    public static function findAll(int $usu_id) {
+    public static function findByUser(int $userid) {
+        $db_conn = self::$conn ?? connection();
+        $query = 'SELECT * FROM tb_participamesa where pam_usu_id=:userid';
+
+        $sttm = $db_conn->prepare($query);
+        $sttm->bindValue(":userid", $userid);
+        $result = $sttm->execute();
+
         $lista_mesas = array();
-
-        while ($mesa = self::find($usu_id)) {
-            array_push($lista_mesas, [
-                'pam_mes_id' => $mesa['pam_mes_id'],
-            ]);
+        while ($mesa = $result->fetchArray()) {
+            $lista_mesas[] = $mesa;
         }
 
-        
-
-        $info_mesas = array();
-        foreach ($lista_mesas as  $id) {
-            array_push($info_mesas, Mesa::findById($id));
-        }
-
-        return $info_mesas;
+        return $lista_mesas;
     }
 }
 

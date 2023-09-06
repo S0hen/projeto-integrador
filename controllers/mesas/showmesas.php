@@ -3,13 +3,23 @@
 if (!hasUser()) {
     header('location: /');
 } else {
-    $user_obj = new User(connection());
     $email = $_SESSION['email'];
-    $userid = $user_obj->getID($email);
+    $userid = (new User(connection()))->getID($email);
 
-    /* ERRO NESSA FUNÇÃO */
-    $mesas = ParMesa::findAll($userid);
-    
+    $participamesas = ParMesa::findByUser($userid);
+
+    $mesas = [];
+    foreach ($participamesas as $linha) {
+        $mesa = Mesa::findById($linha['pam_mes_id']);
+        if ($mesa) {
+            $mesas[] = [
+                'mes_id' => $mesa['mes_id'],
+                'mes_titulo' => $mesa['mes_titulo'],
+                'mes_descricao' => $mesa['mes_descricao'],
+            ];
+        }
+    }
+
     if ($mesas) {
         include('pages/mesas/mesas.php');
     } else {
