@@ -56,5 +56,21 @@ class User
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+
+    public function all() {
+
+        $db_conn = $this->conn;
+
+        $result = $db_conn->query('SELECT * FROM tb_usuarios');
+
+        $user_list = array();
+        while ($user = $result->fetchArray()) {
+            array_push($user_list, [
+                'title' => $user['title'],
+                'user' => $user['user'],
+            ]);
+        }
+        return $user_list;
+    }
 }
 ?>
