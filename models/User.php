@@ -38,6 +38,11 @@ class User
         $model = $this->find($email);
         return $model["usu_name"];
     }
+    
+    public function getPassword (string $email) {
+        $model = $this->find($email);
+        return $model["usu_password"];
+    }
 
     public function updateName(string $newname, string $email) {
         $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_nome=:old_name";
