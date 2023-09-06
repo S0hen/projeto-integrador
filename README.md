@@ -4,7 +4,6 @@
 <h3>O que precisa ser feito</h3>
 <h4>Banco de Dados:</h4>
 <ul> 
-  <li>Adaptar tabelas à nomenclatura;</li>
   <li>Atualizar tabelas de acordo com a necessidade;</li>
   <li>Atualizar tabelas de acordo com a necessidade;</li>
   <li>Fazer os modelos de tabelas adicionais;</li>
