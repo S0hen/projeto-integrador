@@ -175,8 +175,10 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <button type="button" class="btn btn-success">Suas Mesas</button>
+                <div class="row mb-3 text-center">
+                    <a href="/dashboard/mesas/suasmesas">
+                        <button type="button" class="btn btn-success">Suas Mesas</button>
+                    </a>
                 </div>
 
             </div>

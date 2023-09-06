@@ -13,6 +13,23 @@ Class ParMesa {
         $result = $sttm->execute();
         return $result;
     }
+
+    /* ERRO AQUI */
+    public static function findByUser(int $userid) {
+        $db_conn = self::$conn ?? connection();
+        $query = 'SELECT * FROM tb_participamesa where pam_usu_id=:userid';
+
+        $sttm = $db_conn->prepare($query);
+        $sttm->bindValue(":userid", $userid);
+        $result = $sttm->execute();
+
+        $lista_mesas = array();
+        while ($mesa = $result->fetchArray()) {
+            $lista_mesas[] = $mesa;
+        }
+
+        return $lista_mesas;
+    }
 }
 
 ?>
