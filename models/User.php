@@ -29,14 +29,23 @@ class User
         return $result->fetchArray();
     }
     
-    public function getID ($email) {
+    public function getID (string $email) {
         $model = $this->find($email);
         return $model["usu_id"];
     }
     
-    public function getName ($email) {
+    public function getName (string $email) {
         $model = $this->find($email);
         return $model["usu_name"];
+    }
+
+    public function updateName(string $newname, string $email) {
+        $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_nome=:old_name";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":new_name", $newname);
+        $sttm->bindValue(":old_name", $this->getName($email));
+        $result = $sttm->execute();
+        return $result->fetchArray();
     }
 }
 ?>
