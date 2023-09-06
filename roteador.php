@@ -13,6 +13,8 @@ Route::get('/dashboard/mesas', '/pages/mesas/exibirmesas.php', '');
 Route::get('/dashboard/mesas/agendamento', '/pages/mesas/agendamento.html', '');
 Route::get('/dashboard/mesas/criacao', '/pages/mesas/criacao.html', '');
 
+Route::get('/dashboard/user', '/controllers/profile/index.php', '');
+
 Route::post('/dashboard/mesas/criacao/criar', '/controllers/mesas/criar.php', '');
 Route::post('/dashboard/mesas/agendamento/agendar', '/controllers/mesas/agendar.php', '');
 
