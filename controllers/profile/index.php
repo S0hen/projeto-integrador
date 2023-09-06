@@ -7,9 +7,6 @@ if (!hasUser()) {
     $email = $_SESSION['email'];
     $username = $user_obj->getName($email);
 
-
     include('pages/profile/perfil.html');
 }
-
-
-
+?>
