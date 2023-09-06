@@ -11,6 +11,7 @@
 
         if ($password === $POST['confirma_senha']) {
             $user_obj->updatePassword($new_password, $email);
+            $changed = true;
             header('Location: /perfil');
         } else {
             $password_error = true;
