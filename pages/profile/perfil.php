@@ -151,12 +151,13 @@
                                 <form action="/">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="novo_email">
-                                            <label for="novo_email" class="form-label">Digite a sua senha antiga:</label>
+                                            <input type="text" class="form-control" name="nova_senha">
+                                            <label for="nova_senha" class="form-label">Digite a sua nova senha:</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" name="confirma_senha">
-                                            <label for="confirma_senha" class="form-label">Digite a sua nova senha:</label>
+                                            <label for="confirma_senha" class="form-label">Confirme com sua
+                                                senha atual:</label>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
