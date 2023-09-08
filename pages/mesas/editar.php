@@ -27,8 +27,8 @@
                     </div>
                     <div class="form-floating mb-3">
                         <textarea type="text" class="form-control"
-                            name="titulo"><?= $mesa['mes_descricao'] ?></textarea>
-                        <label for="titulo" class="form-label">Descrição da Mesa:</label>
+                            name="descricao"><?= $mesa['mes_descricao'] ?></textarea>
+                        <label for="descricao" class="form-label">Descrição da Mesa:</label>
                     </div>
                     <button type="submit" class="btn btn-success w-25">Salvar</button>
                 </div>
