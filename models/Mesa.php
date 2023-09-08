@@ -53,4 +53,22 @@ class Mesa {
 
         return $result['mes_id'];
     }
+
+    static function update(string $titulo, string $descricao, int $mes_id) {
+        $query = "UPDATE tb_mesas SET mes_titulo=:mes_titulo, mes_descricao=:mes_descricao WHERE med_id=:mes_id";
+        $sttm = self::$conn->prepare($query);
+        $sttm->bindValue(":mes_titulo", $titulo);
+        $sttm->bindValue(":mes_descricao", $descricao);
+        $sttm->bindValue(":mes_id", $mes_id);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
+
+    public function delete($mes_id) {
+        $query = "DELETE FROM tb_mesas WHERE mes_id=:id";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":id", $mes_id);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
 }
