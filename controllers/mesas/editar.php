@@ -15,7 +15,4 @@ if (!hasUser() || !isset($mes_id)) {
         echo '<h2>Você não é o mestre dessa mesa!</h2>';
         echo "<a href='/dashboard/user'>Voltar</a>";
     }
-
-
-    
 }
