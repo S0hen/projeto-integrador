@@ -8,7 +8,7 @@ if (!hasUser()) {
     $username = $user_obj->getName($email);
 
 
-    include('pages/profile/perfil.html');
+    include('pages/profile/perfil.php');
 }
 
 

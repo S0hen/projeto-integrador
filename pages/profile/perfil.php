@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="row mb-3 text-center">
-                    <a href="/dashboard/mesas/suasmesas">
+                    <a href="/dashboard/user/suasmesas">
                         <button type="button" class="btn btn-success">Suas Mesas</button>
                     </a>
                 </div>
