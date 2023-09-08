@@ -16,6 +16,7 @@ if (!hasUser()) {
                 'mes_id' => $mesa['mes_id'],
                 'mes_titulo' => $mesa['mes_titulo'],
                 'mes_descricao' => $mesa['mes_descricao'],
+                'mes_usu_idmestre' => $mesa['mes_usu_idmestre'],
             ];
         }
     }
