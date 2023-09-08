@@ -45,28 +45,36 @@ class User
     }
 
     public function updateName(string $new_name, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_email=:email";
+        $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":new_name", $new_name);
-        $sttm->bindValue(":email", $this->find($email));
+        $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
     public function updatePassword(string $new_password, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_password=:new_password WHERE usu_email=:email";
+        $query = "UPDATE tb_usuarios SET usu_password=:new_password WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":new_password", password_hash($new_password, PASSWORD_ARGON2I));
-        $sttm->bindValue(":email", $this->find($email));
+        $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
     public function updateEmail(string $new_email, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_email=:new_name WHERE usu_name=:email";
+        $query = "UPDATE tb_usuarios SET usu_email=:new_email WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":new_email", $new_email);
-        $sttm->bindValue(":email", $this->find($email));
+        $sttm->bindValue(":id", $this->getID($email));
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
+
+    public function delete($email) {
+        $query = "DELETE FROM tb_usuarios WHERE usu_id=:id";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
