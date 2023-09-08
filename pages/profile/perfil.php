@@ -72,7 +72,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="/dashboard">
+                                <form action="/dashboard/user/update/nome">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" name="novo_nome">
@@ -112,7 +112,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="/">
+                                <form action="/dashboard/user/update/email">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" name="novo_email">
@@ -152,7 +152,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="/">
+                                <form action="/dashboard/user/update/senha">
                                     <div class="modal-body">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" name="nova_senha">
