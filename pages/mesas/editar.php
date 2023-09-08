@@ -12,6 +12,15 @@
 </head>
 
 <body>
+
+<?php
+    if ($changed === true) {
+        echo '<script type="text/javascript">';
+        echo ' alert("Dados alterados com sucesso")';
+        echo '</script>';
+    }
+?>
+
     <div class="container">
         <div class="col-12">
             <div class="row text-center mb-3">

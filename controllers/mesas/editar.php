@@ -1,6 +1,7 @@
 <?php
 
-$mes_id = $_GET['mesa'];
+    $changed = false;
+    $mes_id = $_GET['mesa'];
 
 if (!hasUser() || !isset($mes_id)) {
     header('location: /');
@@ -11,6 +12,7 @@ if (!hasUser() || !isset($mes_id)) {
 
     if ($userid == $mesa['mes_usu_idmestre'] ) {
         Mesa::update($_POST['titulo'], $_POST['descricao'], $mes_id);
+        $changed = true;
         include('pages/mesas/editar.php');
     } else {
         echo '<h2>Você não é o mestre dessa mesa!</h2>';
