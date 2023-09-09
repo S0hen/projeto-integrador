@@ -18,6 +18,7 @@ Route::get('/dashboard/user', '/controllers/profile/index.php', '');
 Route::post('/dashboard/user/update/nome', '/controllers/profile/updatename.php', '');
 Route::post('/dashboard/user/update/email', '/controllers/profile/updateemail.php', '');
 Route::post('/dashboard/user/update/senha', '/controllers/profile/updatepassword.php', '');
+Route::post('/dashboard/user/delete', '/controllers/profile/deleteuser.php', '');
 
 Route::get('/dashboard/user/suasmesas', '/controllers/mesas/showmesas.php', '');
 Route::get('/dashboard/user/suasmesas/editar', '/controllers/mesas/editar.php', '');
