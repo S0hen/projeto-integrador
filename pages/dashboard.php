@@ -16,6 +16,7 @@
     <title>Cover Template · Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     
 
@@ -116,6 +117,19 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
         opacity: 0.5;
       }
 
+      header {
+        position: relative;
+    }
+
+    .icon { 
+        font-family: 'Poppins', sans-serif;
+        position: absolute;
+        top: 20%; 
+        right: 10px; 
+        border-radius: 10px;
+      
+    }
+
     </style>
 
     
@@ -164,6 +178,18 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
     <div>
       <h3 class="float-md-start mb-0 ">CRITICAL ROLL</h3>
     </div>
+
+    <div class="dropdown icon position-absolute top-0 end-0 mt-2">
+    <button class="btn btn-secondary dropdown-toggle bg-transparent icon" style="font-size: 20px;" type="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user-circle"></i>
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/dashboard/user">Ver perfil</a></li>
+        <li><a class="dropdown-item" href="/signout">Sair da conta</a></li>
+    </ul>
+</div>
+
   </header>
 
   <div class="row d-flex justify-content-center ">
@@ -177,11 +203,7 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
             <p class="lead">O que você deseja fazer?</p>
             <p class="lead">
                 <a href="/dashboard/mesas" class="btn btn-lg btn-light fw-bold border-white bg-white">Ver Mesas</a>
-                <a href="/dashboard/user" class="btn btn-lg btn-light fw-bold border-white bg-white">Acessar perfil</a>
                 <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Adicionar amigos</a>
-            </p>
-            <p class="lead">
-                <a href="/signout" class="btn btn-lg btn-light fw-bold border-white bg-white">Sair</a>
             </p>
     </main>
       </div>
@@ -193,6 +215,8 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
   </footer>
 </div>
 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     </body>
 </html>
