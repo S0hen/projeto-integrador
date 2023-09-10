@@ -9,14 +9,14 @@ class User
     }
 
     public function save(string $name, string $email, string $password) : SQLite3Result | bool {
-        $query = "INSERT INTO tb_usuarios ('usu_name', 'usu_email', 'usu_password') "
-            . "values(:usu_name,:usu_email,:usu_password)";
+        $query = "INSERT INTO tb_usuarios ('usu_nome', 'usu_email', 'usu_senha') "
+            . "values(:usu_nome,:usu_email,:usu_senha)";
 
         $sttm = $this->conn->prepare($query);
 
-        $sttm->bindValue(":usu_name", $name);
+        $sttm->bindValue(":usu_nome", $name);
         $sttm->bindValue(":usu_email", $email);
-        $sttm->bindValue(":usu_password", password_hash($password, PASSWORD_ARGON2I));
+        $sttm->bindValue(":usu_senha", password_hash($password, PASSWORD_ARGON2I));
         $result = $sttm->execute();
         return $result;
     }
@@ -36,7 +36,7 @@ class User
     
     public function getName (string $email) {
         $model = $this->find($email);
-        return $model["usu_name"];
+        return $model["usu_nome"];
     }
 
     public function updateName(string $newname, string $email) {
@@ -49,7 +49,7 @@ class User
     }
 
     public function updatePassword(string $newpassword, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_password=:new_name WHERE usu_name=:username";
+        $query = "UPDATE tb_usuarios SET usu_senha=:new_name WHERE usu_nome=:username";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":new_password", password_hash($newpassword, PASSWORD_ARGON2I));
         $sttm->bindValue(":username", $this->getName($email));
@@ -57,20 +57,5 @@ class User
         return $result->fetchArray();
     }
 
-    public function all() {
-
-        $db_conn = $this->conn;
-
-        $result = $db_conn->query('SELECT * FROM tb_usuarios');
-
-        $user_list = array();
-        while ($user = $result->fetchArray()) {
-            array_push($user_list, [
-                'title' => $user['title'],
-                'user' => $user['user'],
-            ]);
-        }
-        return $user_list;
-    }
 }
 ?>
