@@ -9,14 +9,14 @@ class User
     }
 
     public function save(string $name, string $email, string $password) : SQLite3Result | bool {
-        $query = "INSERT INTO tb_usuarios ('usu_name', 'usu_email', 'usu_password') "
-            . "values(:usu_name,:usu_email,:usu_password)";
+        $query = "INSERT INTO tb_usuarios ('usu_nome', 'usu_email', 'usu_senha') "
+            . "values(:usu_nome,:usu_email,:usu_senha)";
 
         $sttm = $this->conn->prepare($query);
 
-        $sttm->bindValue(":usu_name", $name);
+        $sttm->bindValue(":usu_nome", $name);
         $sttm->bindValue(":usu_email", $email);
-        $sttm->bindValue(":usu_password", password_hash($password, PASSWORD_ARGON2I));
+        $sttm->bindValue(":usu_senha", password_hash($password, PASSWORD_ARGON2I));
         $result = $sttm->execute();
         return $result;
     }
@@ -36,12 +36,12 @@ class User
     
     public function getName (string $email) {
         $model = $this->find($email);
-        return $model["usu_name"];
+        return $model["usu_nome"];
     }
     
     public function getPassword (string $email) {
         $model = $this->find($email);
-        return $model["usu_password"];
+        return $model["usu_senha"];
     }
 
     public function updateName(string $new_name, string $email) {
@@ -54,7 +54,7 @@ class User
     }
 
     public function updatePassword(string $new_password, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_password=:new_password WHERE usu_id=:id";
+        $query = "UPDATE tb_usuarios SET usu_senha=:new_password WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":new_password", password_hash($new_password, PASSWORD_ARGON2I));
         $sttm->bindValue(":id", $this->getID($email));

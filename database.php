@@ -20,9 +20,9 @@ $connection = connection();
 $connection->exec(
     "CREATE TABLE IF NOT EXISTS tb_usuarios(
         usu_id INTEGER PRIMARY KEY,
-        usu_name TEXT,
+        usu_nome TEXT,
         usu_email TEXT,
-        usu_password TEXT)" 
+        usu_senha TEXT)" 
 );
 
 $connection->exec("CREATE TABLE IF NOT EXISTS tb_mesas(
