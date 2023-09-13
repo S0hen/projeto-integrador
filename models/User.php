@@ -41,7 +41,7 @@ class User
     
     public function getPassword (string $email) {
         $model = $this->find($email);
-        return $model["usu_password"];
+        return $model["usu_senha"];
     }
 
     public function updateName(string $newname, string $email) {

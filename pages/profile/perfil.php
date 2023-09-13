@@ -47,7 +47,7 @@
 <div class="container">
 
     <div class="text-center">
-        <img src="profile.png" class="rounded" alt="...">
+        <img src="../assets/profile.png" class="rounded" alt="...">
         <h4>Usuário:
         <?= $username ?>
         </h4>
@@ -84,7 +84,7 @@
                                 aria-label="Close"></button>
                             </div>
 
-                            <form action="/dashboard/user/update/nome">
+                            <form action="/dashboard/user/update/nome" method="POST">
                                 <div class="modal-body">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="novo_nome">
@@ -125,7 +125,7 @@
                                 aria-label="Close"></button>
                             </div>
 
-                            <form action="/dashboard/user/update/email">
+                            <form action="/dashboard/user/update/email" method="POST">
                                 <div class="modal-body">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="novo_email">
@@ -168,7 +168,7 @@
                                 aria-label="Close"></button>
                             </div>
 
-                            <form action="/dashboard/user/update/senha">
+                            <form action="/dashboard/user/update/senha" method="POST">
                                 <div class="modal-body">
                                     <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="nova_senha">
@@ -216,7 +216,7 @@
                             aria-label="Close"></button>
                         </div>
 
-                        <form action="/dashboard/user/delete">
+                        <form action="/dashboard/user/delete" method="POST">
 
                             <div class="modal-body">
                                 <div class="form-floating mb-3">

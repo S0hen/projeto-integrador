@@ -10,12 +10,12 @@
         $user_obj = new User(connection());
         $email = $_SESSION['email'];
         $password = $user_obj->getPassword($email);
-        $new_name = $POST['novo_nome'];
+        $new_name = $_POST['novo_nome'];
 
-        if ($password === $POST['confirma_senha']) {
+        if (password_verify($_POST['confirma_senha'], $password)) {
             $user_obj->updateName($new_name, $email);
             $changed = true;
-            header('Location: /perfil');
+            header('Location: /dashboard/user');
         } else {
             $password_error = true;
         }
