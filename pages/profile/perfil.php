@@ -47,7 +47,7 @@
 <div class="container">
 
     <div class="text-center">
-        <img src="../assets/profile.png" class="rounded" alt="...">
+        <img src="../../assets/profile.png" class="rounded" alt="...">
         <h4>Usuário:
         <?= $username ?>
         </h4>
