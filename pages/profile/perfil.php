@@ -32,11 +32,11 @@
 
     <!-- Alerta após as edições -->
     <?php
-        if ($password_error === true) {
+        if ($_GET['changed'] === 'false') {
             echo '<script type="text/javascript">';
             echo ' alert("Dados inalterados devido à senha incorreta")';
             echo '</script>';
-        } else if ($changed === true) {
+        } else if ($_GET['changed'] === 'false') {
             echo '<script type="text/javascript">';
             echo ' alert("Dados alterados com sucesso")';
             echo '</script>';

@@ -15,12 +15,9 @@
         if (password_verify($_POST['confirma_senha'], $password)) {
             $user_obj->updateEmail($new_email, $email);
             $_SESSION['email'] = $new_email;
-            $changed = true;
-            header('Location: /dashboard/user');
+            header('Location: /dashboard/user?changed=true');
         } else {
-            trigger_error("Cannot divide by zero", E_USER_ERROR);
+            header('Location: /dashboard/user?changed=false');
         }
-
-        include __DIR__ . '/../../pages/profile/perfil.php'; 
     }
 ?>

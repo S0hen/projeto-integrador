@@ -1,6 +1,4 @@
 <?php
-    $changed = false;
-    $password_error = false;
 
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -14,12 +12,9 @@
 
         if (password_verify($_POST['confirma_senha'], $password)) {
             $user_obj->updateName($new_name, $email);
-            $changed = true;
-            header('Location: /dashboard/user');
+            header('Location: /dashboard/user?changed=true');
         } else {
-            $password_error = true;
+            header('Location: /dashboard/user?changed=false');
         }
-
-        include __DIR__ . '/../../pages/profile/perfil.php'; 
     }
 ?>
