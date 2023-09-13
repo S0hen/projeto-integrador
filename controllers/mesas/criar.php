@@ -21,18 +21,12 @@ if (isset($_POST['titulo'], $_POST['descricao'], $_SESSION['email'])) {
 
     $data = Mesa::find($titulo, $mestre);
 
-
-
-    if ($data) {
-        header('location: /dashboard/mesas');
-    } else {
+    if (!$data) {
         $result = Mesa::save($titulo, $descricao, $mestre);
         $mes_id = Mesa::getId($titulo, $mestre);
         $add = ParMesa::save($mes_id, $mestre);
-
-        header('location: /dashboard/mesas');
-    }
-
+    } 
+    header('location: /dashboard');
 }
 
 ?>

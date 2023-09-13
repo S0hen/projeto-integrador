@@ -36,7 +36,9 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_mesas(
 $connection->exec("CREATE TABLE IF NOT EXISTS tb_sessoes(
     ses_id INTEGER PRIMARY KEY,
     ses_horario TIME,
-    ses_datacalendario DATE)"
+    ses_datacalendario DATE,
+    ses_mes_id INTEGER,
+    FOREIGN KEY (ses_mes_id) REFERENCES tb_mesas(mes_id))"
 );
 
 $connection->exec("CREATE TABLE IF NOT EXISTS tb_temas(
@@ -52,13 +54,13 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_participamesa(
     FOREIGN KEY (pam_usu_id) REFERENCES tb_usuarios(usu_id))"
 );
 
-$connection->exec("CREATE TABLE IF NOT EXISTS tb_participasessao(
+/*$connection->exec("CREATE TABLE IF NOT EXISTS tb_participasessao(
     pas_id INTEGER PRIMARY KEY,
     pas_ses_id INTEGER,
     pas_usu_id INTEGER,
     FOREIGN KEY (pas_ses_id) REFERENCES tb_sessoes(ses_id),
     FOREIGN KEY (pas_usu_id) REFERENCES tb_usuarios(usu_id))"
-);
+);*/
 
 $connection->exec("CREATE TABLE IF NOT EXISTS tb_listatemas(
     lit_id INTEGER PRIMARY KEY,

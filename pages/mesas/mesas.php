@@ -34,7 +34,14 @@
                         <button class="btn btn-success">Editar mesa</button>
                     </a>
 
+                    <a href="/dashboard/user/sessoes/agendamento?mesa=<?= urlencode($mesa['mes_id']) ?>">
+                        <button>Agendar Sessão</button>
+                    </a>
+
                 <?php } ?>
+                <a href="/dashboard/user/sessoes?mesa=<?= urlencode($mesa['mes_id']) ?>">
+                    <button>Histórico de Sessões</button>
+                </a>
 
             </div>
 

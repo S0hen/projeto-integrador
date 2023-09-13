@@ -14,7 +14,7 @@ Class ParMesa {
         return $result;
     }
 
-    /* ERRO AQUI */
+    
     public static function findByUser(int $userid) {
         $db_conn = self::$conn ?? connection();
         $query = 'SELECT * FROM tb_participamesa where pam_usu_id=:userid';

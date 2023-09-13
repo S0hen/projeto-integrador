@@ -36,7 +36,8 @@
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-8">
-                        <form action="/dashboard/mesas/agendamento/agendar" method="POST"> 
+                        <form action="/dashboard/user/sessoes/agendar" method="POST">
+                            <input name="mes_id" type="hidden" value="<?= $_GET['mesa'] ?>"> 
                             <div class="mb-4 form-floating">
                                 <input type="date" class="form-control" id="data" name="data">
                                 <label for="data" class="form-label">Data</label>
