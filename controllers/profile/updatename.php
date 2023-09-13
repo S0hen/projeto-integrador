@@ -1,6 +1,7 @@
 <?php
     $changed = false;
     $password_error = false;
+    
     $method = $_SERVER['REQUEST_METHOD'];
 
     if (!hasUser() || $method==='GET') {

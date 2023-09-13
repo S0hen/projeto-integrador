@@ -2,6 +2,7 @@
 
     $password_error = false;
     $changed = false;
+    
     $password = $_POST['confirma_senha'];
     $password2 = $_POST['confirma_senha_2'];
 
