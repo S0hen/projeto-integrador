@@ -8,15 +8,15 @@ class User
         $this->conn = $connection;
     }
 
-    public function save(string $name, string $email, string $password) : SQLite3Result | bool {
-        $query = "INSERT INTO tb_usuarios ('usu_name', 'usu_email', 'usu_password') "
-            . "values(:usu_name,:usu_email,:usu_password)";
+    public function save(string $nome, string $email, string $senha) : SQLite3Result | bool {
+        $query = "INSERT INTO tb_usuarios ('usu_nome', 'usu_email', 'usu_senha') "
+            . "values(:usu_nome,:usu_email,:usu_senha)";
 
         $sttm = $this->conn->prepare($query);
 
-        $sttm->bindValue(":usu_name", $name);
+        $sttm->bindValue(":usu_nome", $nome);
         $sttm->bindValue(":usu_email", $email);
-        $sttm->bindValue(":usu_password", password_hash($password, PASSWORD_ARGON2I));
+        $sttm->bindValue(":usu_senha", password_hash($senha, PASSWORD_ARGON2I));
         $result = $sttm->execute();
         return $result;
     }
@@ -36,7 +36,7 @@ class User
     
     public function getName (string $email) {
         $model = $this->find($email);
-        return $model["usu_name"];
+        return $model["usu_nome"];
     }
     
     public function getPassword (string $email) {
@@ -44,28 +44,28 @@ class User
         return $model["usu_password"];
     }
 
-    public function updateName(string $new_name, string $email) {
+    public function updateName(string $newname, string $email) {
         $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
-        $sttm->bindValue(":new_name", $new_name);
+        $sttm->bindValue(":new_name", $newname);
         $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
-    public function updatePassword(string $new_password, string $email) {
-        $query = "UPDATE tb_usuarios SET usu_password=:new_password WHERE usu_id=:id";
+    public function updatePassword(string $newpassword, string $email) {
+        $query = "UPDATE tb_usuarios SET usu_senha=:newpassword WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
-        $sttm->bindValue(":new_password", password_hash($new_password, PASSWORD_ARGON2I));
+        $sttm->bindValue(":newpassword", password_hash($newpassword, PASSWORD_ARGON2I));
         $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
-    public function updateEmail(string $new_email, string $email) {
+    public function updateEmail(string $newemail, string $email) {
         $query = "UPDATE tb_usuarios SET usu_email=:new_email WHERE usu_id=:id";
         $sttm = $this->conn->prepare($query);
-        $sttm->bindValue(":new_email", $new_email);
+        $sttm->bindValue(":new_email", $newemail);
         $sttm->bindValue(":id", $this->getID($email));
         $result = $sttm->execute();
         return $result->fetchArray();
