@@ -67,3 +67,17 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_listatemas(
     lit_mes_id INTEGER,
     FOREIGN KEY (lit_mes_id) REFERENCES tb_mesas(mes_id))"
 );
+
+$connection->exec(
+    "CREATE TABLE IF NOT EXISTS tb_convites(
+        con_id INTEGER PRIMARY KEY,
+        con_datacalendario date,
+        con_situacao boolean,
+        con_mensagem TEXT,
+        con_usu_id TEXT,
+        con_mes_id TEXT,
+        FOREIGN KEY (con_usu_id) REFERENCES tb_usuarios(usu_id), 
+        FOREIGN KEY (con_mes_id) REFERENCES tb_mesas(mes_id))" 
+);
+
+?>
