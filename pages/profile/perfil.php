@@ -30,19 +30,6 @@
 
 <body>
 
-    <!-- Alerta após as edições -->
-    <?php
-        if ($_GET['changed'] === 'false') {
-            echo '<script type="text/javascript">';
-            echo ' alert("Dados inalterados devido à senha incorreta")';
-            echo '</script>';
-        } else if ($_GET['changed'] === 'false') {
-            echo '<script type="text/javascript">';
-            echo ' alert("Dados alterados com sucesso")';
-            echo '</script>';
-        }
-    ?>
-
 <!-- Perfil -->
 <div class="container">
 
