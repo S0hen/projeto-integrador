@@ -12,9 +12,16 @@
 
         if (password_verify($_POST['confirma_senha'], $password)) {
             $user_obj->updateName($new_name, $email);
-            header('Location: /dashboard/user?changed=true');
+            
+            echo '<script type="text/javascript">';
+            echo ' alert("Nome de usuário alterado com sucesso!")';
+            echo '</script>';
+            header('Location: /dashboard/user');
         } else {
-            header('Location: /dashboard/user?changed=false');
+            echo '<script type="text/javascript">';
+            echo ' alert("Dados inalterados devido à senha incorreta.")';
+            echo '</script>';
+            header('Location: /dashboard/user');
         }
     }
 ?>
