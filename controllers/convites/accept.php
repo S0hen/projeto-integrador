@@ -1,7 +1,7 @@
 <?php
 
-    $user = (new User(connection()))->getID($_SESSION['email']);
-    $accept = (new Convite(connection()))->accept($user);
+    $conId = $_GET['conId'];
+    $accept = (new Convite(connection()))->accept($conId);
 
     echo '<script type="text/javascript">';
     echo ' alert("Convite para mesa aceito!")';

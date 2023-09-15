@@ -1,7 +1,7 @@
 <?php
 
-    $user = (new User(connection()))->getID($_SESSION['email']);
-    $refuse = (new Convite(connection()))->refuse($user);
+    $conId = $_GET['conId'];
+    $refuse = (new Convite(connection()))->refuse($conId);
 
     echo '<script type="text/javascript">';
     echo ' alert("Convite para mesa recusado.")';
