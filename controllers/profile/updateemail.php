@@ -21,10 +21,7 @@
             echo '</script>';
             header('Location: /dashboard/user');
         } else {
-            echo '<script type="text/javascript">';
-            echo ' alert("Dados inalterados devido à senha incorreta.")';
-            echo '</script>';
-            header('Location: /dashboard/user');
+            header("Location: /dashboard/user?error=wrgpswd");
         }
     }
 ?>
