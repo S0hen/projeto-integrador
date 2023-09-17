@@ -207,12 +207,12 @@
 
                             <div class="modal-body">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="delete_conta">
-                                    <label for="comfirma_senha" class="form-label">Insira sua senha atual</label>
+                                    <input type="text" class="form-control" name="senha1">
+                                    <label for="senha1" class="form-label">Insira sua senha atual</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="confirma_senha">
-                                    <label for="confirma_senha_2" class="form-label">Confirme sua senha:</label>
+                                    <input type="text" class="form-control" name="senha2">
+                                    <label for="senha2" class="form-label">Confirme sua senha:</label>
                                 </div>
                             </div>
 

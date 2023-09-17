@@ -13,12 +13,9 @@
         if (password_verify($_POST['confirma_senha'], $password)) {
             $user_obj->updateName($new_name, $email);
             
-            echo '<script type="text/javascript">';
-            echo ' alert("Nome de usuário alterado com sucesso!")';
-            echo '</script>';
-            header('Location: /dashboard/user');
+            header('Location: /dashboard/user?message=update');
         } else {
-            header("Location: /dashboard/user?error=wrgpswd");
+            header("Location: /dashboard/user?message=wrgpswd");
         }
     }
 ?>

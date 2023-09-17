@@ -16,12 +16,9 @@
             $user_obj->updateEmail($new_email, $email);
             $_SESSION['email'] = $new_email;
 
-            echo '<script type="text/javascript">';
-            echo ' alert("Email alterado com sucesso!")';
-            echo '</script>';
-            header('Location: /dashboard/user');
+            header('Location: /dashboard/user?message=update');
         } else {
-            header("Location: /dashboard/user?error=wrgpswd");
+            header("Location: /dashboard/user?message=wrgpswd");
         }
     }
 ?>
