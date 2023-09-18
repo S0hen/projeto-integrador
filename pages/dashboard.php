@@ -202,7 +202,7 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
             ?>
             <p class="lead">O que você deseja fazer?</p>
             <p class="lead">
-            <a href="/dashboard/mesas/criar" class="btn btn-lg btn-light fw-bold border-white bg-white">Criar uma Mesa</a>
+            <a href="/dashboard/mesas/criacao" class="btn btn-lg btn-light fw-bold border-white bg-white">Criar uma Mesa</a>
             <a href="/dashboard/user" class="btn btn-lg btn-light fw-bold border-white bg-white">Acessar perfil</a>
             <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Adicionar amigos</a>
             </p>
