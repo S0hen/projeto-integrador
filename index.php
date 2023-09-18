@@ -12,6 +12,7 @@ include __DIR__ . '/models/User.php';
 include __DIR__ . '/models/Mesa.php';
 include __DIR__ . '/models/Sessao.php';
 include __DIR__ . '/models/ParMesa.php';
+include __DIR__ . '/models/Convite.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 

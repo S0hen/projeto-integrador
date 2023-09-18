@@ -26,7 +26,7 @@ if (!hasUser()) {
     }
 
     if ($convites) {
-        include('pages/dashboard.php');
+        include('pages/convites/index.php');
     } else {
         echo '<h2>Você não tem nenhum convite no momento!</h2>';
         echo "<a href='/'>Voltar</a>";

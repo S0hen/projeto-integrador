@@ -27,4 +27,6 @@ Route::get('/dashboard/user/sessoes/agendamento', '/pages/sessoes/agendamento.ph
 Route::post('/dashboard/user/sessoes/agendar', '/controllers/sessoes/agendar.php', '');
 Route::get('/dashboard/user/sessoes', '/controllers/sessoes/historico.php', '');
 
+Route::get('/dashboard/user/suasmesas/convites', '/controllers/convites/showconvites.php', '');
+
 ?>
