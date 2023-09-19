@@ -29,10 +29,8 @@ Route::get('/dashboard/user/sessoes', '/controllers/sessoes/historico.php', '');
 
 Route::get('/dashboard/user/suasmesas/recebidos', '/controllers/convites/showconvites.php', '');
 Route::get('/dashboard/user/suasmesas/convite', '/controllers/convites/convidar.php', '');
-
-Route::get('/dashboard/convites', '/controllers/convites/index.php', '');
-Route::get('/dashboard/convidar', '/controllers/convites/convidar.php', '');
+Route::post('/dashboard/user/suasmesas/convidar', '/controllers/convites/inviteuser.php', '');
 Route::get('/dashboard/aceitar', '/controllers/convites/accept.php', '');
 Route::get('/dashboard/recusar', '/controllers/convites/refuse.php', '');
-Route::get('/dashboard/seusconvites', '/controllers/convites/showconvites.php', '');
+
 ?>
