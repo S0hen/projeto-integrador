@@ -10,18 +10,21 @@ if (hasUser()) {
         $email = $_POST['email'];
         $password = $_POST['senha'];
     
-       $user = new User(connection());
-        
-       $data = $user->find($email);   
+        $user = new User(connection());
+
+        $data = $user->find($email);
     
-       if ($data) {
-           $_SESSION['email'] = $data['usu_email'];
-           header('Location: /dashboard');
-       } else {
-           $retorno = $user->save($username, $email, $password);
-           $_SESSION['email'] = $email;
-           header('location: /dashboard');
-       }
+        if ($data) {
+            $_SESSION['email'] = $data['usu_email'];
+            header('Location: /dashboard');
+        } else {
+            if ($user->findByName($username)) {
+                header('location: /register?message=invalid_user');
+            }
+            $retorno = $user->save($username, $email, $password);
+            $_SESSION['email'] = $email;
+            header('location: /dashboard');
+        }
     
     } else {
         header('location:/signup');
