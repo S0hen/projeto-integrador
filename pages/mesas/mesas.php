@@ -38,6 +38,10 @@
                         <button>Agendar Sessão</button>
                     </a>
 
+                    <a href="/dashboard/user/suasmesas/convite?mesa=<?= urlencode($mesa['mes_id']) ?>">
+                        <button>Convidar usuários</button>
+                    </a>
+
                 <?php } ?>
                 <a href="/dashboard/user/sessoes?mesa=<?= urlencode($mesa['mes_id']) ?>">
                     <button>Histórico de Sessões</button>
