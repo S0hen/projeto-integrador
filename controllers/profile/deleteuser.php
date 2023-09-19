@@ -1,26 +1,24 @@
 <?php
 
-    $password = $_POST['confirma_senha'];
-    $password2 = $_POST['confirma_senha_2'];
-
     if (!hasUser() || ($_SERVER['REQUEST_METHOD'] === 'GET')) {
-        header('Location: /');
-    } else if ($password !== $password2) {
-
-        echo '<script type="text/javascript">';
-        echo ' alert("Senha incorreta, sua conta não será deletada.")';
-        echo '</script>';
-        header('Location: /perfil');
+        header('Location: /'); 
     } else {
+
+        $password = $_POST['senha1'];
+        $password2 = $_POST['senha2'];
 
         $email = $_SESSION['email'];
         $model = new User(connection());
+        $userPassword = $model->getPassword($email);
 
-        $model->delete($email);
+        if ($password == $password2 && password_verify($password, $userPassword)) {
+
+            $model->delete($email);
         
-        echo '<script type="text/javascript">';
-        echo ' alert("Conta deletada com sucesso, redirecionando...")';
-        echo '</script>';
-        header('Location: /signout');
+            header('Location: /signout');
+        } else {
+            header("Location: /dashboard/user?message=wrgpswd");
+        }
+        
     }
 ?>

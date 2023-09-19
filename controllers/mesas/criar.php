@@ -25,8 +25,10 @@ if (isset($_POST['titulo'], $_POST['descricao'], $_SESSION['email'])) {
         $result = Mesa::save($titulo, $descricao, $mestre);
         $mes_id = Mesa::getId($titulo, $mestre);
         $add = ParMesa::save($mes_id, $mestre);
-    } 
-    header('location: /dashboard');
+        header('location: /dashboard');
+    } else {
+        header('location: /dashboard/mesas/criacao?message=error');
+    }
 }
 
 ?>
