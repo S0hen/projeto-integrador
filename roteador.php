@@ -30,7 +30,7 @@ Route::get('/dashboard/user/sessoes', '/controllers/sessoes/historico.php', '');
 Route::get('/dashboard/user/suasmesas/recebidos', '/controllers/convites/showconvites.php', '');
 Route::get('/dashboard/user/suasmesas/convite', '/controllers/convites/convidar.php', '');
 Route::post('/dashboard/user/suasmesas/convidar', '/controllers/convites/inviteuser.php', '');
-Route::get('/dashboard/aceitar', '/controllers/convites/accept.php', '');
-Route::get('/dashboard/recusar', '/controllers/convites/refuse.php', '');
+Route::get('/dashboard/user/suasmesas/aceitar', '/controllers/convites/accept.php', '');
+Route::get('/dashboard/user/suasmesas/recusar', '/controllers/convites/refuse.php', '');
 
 ?>
