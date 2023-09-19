@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', '/pages/home.html', '');
-Route::get('/register', '/pages/auth/register.html', '');
+Route::get('/register', '/pages/auth/register.php', '');
 Route::get('/login', '/pages/auth/login.html', '');
 Route::get('/dashboard', '/pages/dashboard.php', '');
 Route::get('/perfil', '/pages/profile/perfil.php', '');
