@@ -9,8 +9,8 @@ class Convite {
     }
 
     // usa igual aos de User
-    public function find (string $email) : Array | bool {
-        $userid = (new User(connection()))->getID($email);
+    public function find (string $nome) : Array | bool {
+        $userid = (new User(connection()))->getIDByName($nome);
 
         $query = "SELECT * FROM tb_convites WHERE con_usu_id=:usu_id";
         $sttm = $this->conn->prepare($query);
@@ -39,8 +39,8 @@ class Convite {
     }
     
     // usa igual aos de User
-    public function getID (string $email) {
-        $userid = (new User(connection()))->getID($email);
+    public function getID (string $nome) {
+        $userid = (new User(connection()))->getIDByName($nome);
 
         $model = $this->find($userid);
         return $model["con_id"];
