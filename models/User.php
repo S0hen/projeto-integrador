@@ -29,8 +29,21 @@ class User
         return $result->fetchArray();
     }
     
+    public function findByName (string $nome) : Array | bool {
+        $query = "SELECT * FROM tb_usuarios WHERE usu_nome=:usu_nome";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":usu_nome", $nome);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
+    
     public function getID (string $email) {
         $model = $this->find($email);
+        return $model["usu_id"];
+    }
+    
+    public function getIDByName (string $nome) {
+        $model = $this->findByName($nome);
         return $model["usu_id"];
     }
     
