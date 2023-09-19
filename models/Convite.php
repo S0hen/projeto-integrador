@@ -8,6 +8,17 @@ class Convite {
         $this->conn = $connection;
     }
 
+    // usa igual aos de User
+    public function find (string $email) : Array | bool {
+        $userid = (new User(connection()))->getID($email);
+
+        $query = "SELECT * FROM tb_convites WHERE con_usu_id=:usu_id";
+        $sttm = $this->conn->prepare($query);
+        $sttm->bindValue(":usu_id", $userid);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
+
     // convida alguém pra mesa (usado pelo mestre)
     public function invite(string $mensagem, int $usu_id, int $mes_id) {
         $data = date('Y-m-d');
@@ -25,6 +36,14 @@ class Convite {
         $sttm->bindValue(":con_mes_id", $mes_id);
         $result = $sttm->execute();
         return $result;
+    }
+    
+    // usa igual aos de User
+    public function getID (string $email) {
+        $userid = (new User(connection()))->getID($email);
+
+        $model = $this->find($userid);
+        return $model["con_id"];
     }
 
     // usa no controller fazer um foreach e mostrar todos
