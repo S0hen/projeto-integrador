@@ -188,7 +188,7 @@
 
                 <hr>
 
-                <a href="/dashboard/user/suasmesas/convites">
+                <a href="/dashboard/user/suasmesas/recebidos">
                     <button type="button" class="btn btn-primary">
                     Convites recebidos
                     </button> 

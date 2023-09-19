@@ -27,7 +27,7 @@
                     <?= $convite['con_datacalendario'] ?>
                 </p>
                 <p>Mensagem:
-                    <?= $convite['con_datacalendario'] ?>
+                    <?= $convite['con_mensagem'] ?>
                 </p>
 
         <?php        
