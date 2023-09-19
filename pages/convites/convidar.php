@@ -9,11 +9,11 @@
     
     <form action="/dashboard/user/suasmesas/convidar" method="POST">
 
-        <input type="hidden" value="<?= $mesa['mes_id'] ?>">
+        <input type="hidden" value="<?= $mesa['mes_id'] ?>" name="mesa">
 
-        <label for="usermail">Email do Usuário</label>
+        <label for="nome">Nome do Usuário</label>
         <br>
-        <input type="text" name="usermail">
+        <input type="text" name="nome">
 
         <br>    
 
