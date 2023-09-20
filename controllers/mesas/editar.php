@@ -5,9 +5,9 @@
 if (!hasUser() || !isset($mes_id)) {
     header('location: /');
 } else {
+    $mesa = Mesa::findById($mes_id);
     $email = $_SESSION['email'];
     $userid = (new User(connection()))->getID($email);
-    $mesa = Mesa::findById($mes_id);
 
     if ($userid == $mesa['mes_usu_idmestre'] ) {
         Mesa::update($_POST['titulo'], $_POST['descricao'], $mes_id);

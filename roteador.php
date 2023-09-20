@@ -14,13 +14,13 @@ Route::get('/dashboard/mesas', '/pages/mesas/exibirmesas.php', '');
 Route::get('/dashboard/mesas/criacao', '/pages/mesas/criacao.php', '');
 
 Route::get('/dashboard/user', '/controllers/profile/index.php', '');
-Route::post('/dashboard/user/update/nome', '/controllers/profile/updatename.php', '');
+Route::post('/dashboard/user/update/nome', '/controllers/profile/updatenome.php', '');
 Route::post('/dashboard/user/update/email', '/controllers/profile/updateemail.php', '');
-Route::post('/dashboard/user/update/senha', '/controllers/profile/updatepassword.php', '');
-Route::post('/dashboard/user/delete', '/controllers/profile/deleteuser.php', '');
+Route::post('/dashboard/user/update/senha', '/controllers/profile/updatesenha.php', '');
+Route::post('/dashboard/user/delete', '/controllers/profile/apagar.php', '');
 
 Route::get('/dashboard/user/suasmesas', '/controllers/mesas/showmesas.php', '');
-Route::get('/dashboard/user/suasmesas/editar', '/controllers/mesas/editar.php', '');
+Route::get('/dashboard/user/suasmesas/updater', '/controllers/mesas/editar.php', '');
 Route::post('/dashboard/mesas/criar', '/controllers/mesas/criar.php', '');
 
 Route::get('/dashboard/user/sessoes/agendamento', '/pages/sessoes/agendamento.php', '');
@@ -32,5 +32,9 @@ Route::get('/dashboard/user/suasmesas/convite', '/controllers/convites/convidar.
 Route::post('/dashboard/user/suasmesas/convidar', '/controllers/convites/inviteuser.php', '');
 Route::get('/dashboard/user/suasmesas/aceitar', '/controllers/convites/accept.php', '');
 Route::get('/dashboard/user/suasmesas/recusar', '/controllers/convites/refuse.php', '');
+
+Route::post('/dashboard/superuser', '/controllers/superuser/index.php', 'adm');
+Route::get('/dashboard/superuser/user/delete', '/controllers/superuser/apagauser.php', 'adm');
+Route::get('/dashboard/superuser/mesa/delete', '/controllers/superuser/apagamesa.php', 'adm');
 
 ?>
