@@ -76,11 +76,10 @@ class Mesa {
         return $result->fetchArray();
     }
 
-    public function delete($mes_id) {
+    public static function delete($mes_id) {
         $query = "DELETE FROM tb_mesas WHERE mes_id=:id";
-        $sttm = $this->conn->prepare($query);
+        $sttm = self::$conn->prepare($query);
         $sttm->bindValue(":id", $mes_id);
         $result = $sttm->execute();
-        return $result->fetchArray();
     }
 }
