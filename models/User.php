@@ -57,6 +57,11 @@ class User
         $model = $this->find($email);
         return $model["usu_senha"];
     }
+    
+    public function getTipo (string $email) {
+        $model = $this->find($email);
+        return $model["usu_tipo"];
+    }
 
     public function updateName(string $newname, string $email) {
         $query = "UPDATE tb_usuarios SET usu_nome=:new_name WHERE usu_id=:id";
