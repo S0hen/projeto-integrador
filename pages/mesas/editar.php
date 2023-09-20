@@ -14,7 +14,7 @@
 <body>
 
 <?php
-    if ($changed === true) {
+    if ($_GET['message'] === 'sucesso') {
         echo '<script type="text/javascript">';
         echo ' alert("Dados alterados com sucesso")';
         echo '</script>';
