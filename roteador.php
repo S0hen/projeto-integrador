@@ -34,7 +34,12 @@ Route::get('/dashboard/user/suasmesas/aceitar', '/controllers/convites/accept.ph
 Route::get('/dashboard/user/suasmesas/recusar', '/controllers/convites/refuse.php', '');
 
 Route::post('/dashboard/superuser', '/controllers/superuser/index.php', 'adm');
+Route::get('/dashboard/superuser/user', '/pages/superuser/editarusu.php', 'adm');
+Route::get('/dashboard/superuser/user/update/nome', '/controllers/superuser/updatenome.php', 'adm');
+Route::get('/dashboard/superuser/user/update/nome', '/controllers/superuser/updateemail.php', 'adm');
+Route::get('/dashboard/superuser/user/update/nome', '/controllers/superuser/updatesenha.php', 'adm');
 Route::get('/dashboard/superuser/user/delete', '/controllers/superuser/apagauser.php', 'adm');
+
 Route::get('/dashboard/superuser/mesa/delete', '/controllers/superuser/apagamesa.php', 'adm');
 
 ?>

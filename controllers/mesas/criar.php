@@ -1,7 +1,5 @@
 <?php
 
-$rota = Route::getRoute('/dashboard/mesas/criacao/criar');
-
 if (!hasUser()) {
     header('location: /');
 }
