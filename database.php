@@ -22,7 +22,8 @@ $connection->exec(
         usu_id INTEGER PRIMARY KEY,
         usu_nome TEXT,
         usu_email TEXT,
-        usu_senha TEXT)" 
+        usu_senha TEXT,
+        usu_tipo TEXT)" 
 );
 
 $connection->exec("CREATE TABLE IF NOT EXISTS tb_mesas(
@@ -80,5 +81,10 @@ $connection->exec(
         FOREIGN KEY (con_usu_id) REFERENCES tb_usuarios(usu_id),
         FOREIGN KEY (con_mes_id) REFERENCES tb_mesas(mes_id))" 
 );
+
+$superuser = new User(connection());
+if (!$superuser->find('super@user')) {
+    $superuser->save('superuser', 'super@user', 'adm123321', 'adm');
+}
 
 ?>

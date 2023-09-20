@@ -8,15 +8,16 @@ class User
         $this->conn = $connection;
     }
 
-    public function save(string $nome, string $email, string $senha) : SQLite3Result | bool {
-        $query = "INSERT INTO tb_usuarios ('usu_nome', 'usu_email', 'usu_senha') "
-            . "values(:usu_nome,:usu_email,:usu_senha)";
+    public function save(string $nome, string $email, string $senha, string $tipo) : SQLite3Result | bool {
+        $query = "INSERT INTO tb_usuarios ('usu_nome', 'usu_email', 'usu_senha', 'usu_tipo') "
+            . "values(:usu_nome,:usu_email,:usu_senha,:usu_tipo)";
 
         $sttm = $this->conn->prepare($query);
 
         $sttm->bindValue(":usu_nome", $nome);
         $sttm->bindValue(":usu_email", $email);
         $sttm->bindValue(":usu_senha", password_hash($senha, PASSWORD_ARGON2I));
+        $sttm->bindValue(":usu_tipo", $tipo);
         $result = $sttm->execute();
         return $result;
     }

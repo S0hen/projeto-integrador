@@ -21,7 +21,7 @@ if (hasUser()) {
             if ($user->findByName($username)) {
                 header('location: /register?message=invalid_user');
             }
-            $retorno = $user->save($username, $email, $password);
+            $retorno = $user->save($username, $email, $password, '');
             $_SESSION['email'] = $email;
             header('location: /dashboard');
         }
