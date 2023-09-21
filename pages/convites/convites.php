@@ -13,7 +13,7 @@
 
         <?php
 
-        foreach ($convite as $convite) {
+        foreach ($convites as $convite) {
 
             $mesa_titulo = Mesa::getName($convite['con_mes_id']);
 
