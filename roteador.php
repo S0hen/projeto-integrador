@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', '/pages/home.html', '');
-Route::get('/register', '/pages/auth/register.html', '');
+Route::get('/register', '/pages/auth/register.php', '');
 Route::get('/login', '/pages/auth/login.html', '');
 Route::get('/dashboard', '/pages/dashboard.php', '');
 Route::get('/perfil', '/pages/profile/perfil.php', '');
@@ -26,5 +26,11 @@ Route::post('/dashboard/mesas/criar', '/controllers/mesas/criar.php', '');
 Route::get('/dashboard/user/sessoes/agendamento', '/pages/sessoes/agendamento.php', '');
 Route::post('/dashboard/user/sessoes/agendar', '/controllers/sessoes/agendar.php', '');
 Route::get('/dashboard/user/sessoes', '/controllers/sessoes/historico.php', '');
+
+Route::get('/dashboard/user/suasmesas/recebidos', '/controllers/convites/showconvites.php', '');
+Route::get('/dashboard/user/suasmesas/convite', '/controllers/convites/convidar.php', '');
+Route::post('/dashboard/user/suasmesas/convidar', '/controllers/convites/inviteuser.php', '');
+Route::get('/dashboard/user/suasmesas/aceitar', '/controllers/convites/accept.php', '');
+Route::get('/dashboard/user/suasmesas/recusar', '/controllers/convites/refuse.php', '');
 
 ?>

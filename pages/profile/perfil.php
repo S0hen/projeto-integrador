@@ -177,6 +177,26 @@
                         </div>
                     </div>
                 </div>
+
+                <h3>Configurações de Mesa</h3>
+
+                <a href="/dashboard/user/suasmesas">
+                    <button type="button" class="btn btn-primary">
+                    Suas Mesas
+                    </button> 
+                </a>
+
+                <hr>
+
+                <a href="/dashboard/user/suasmesas/recebidos">
+                    <button type="button" class="btn btn-primary">
+                    Convites recebidos
+                    </button> 
+                </a>
+
+                <hr>
+
+
             </div>
         </div>
     </div>
