@@ -52,17 +52,6 @@
                                 <input type="text" class="form-control" id="titulo" name="titulo">
                                     <label for="titulo" class="form-label">Nome da Mesa</label>
                             </div>
-                            <div class="mb-4">
-                                <p>Temas</p>
-                                <input class="form-check-input" type="checkbox" value="" id="aef">
-                                <label class="form-check-label" for="aef">
-                                    Aventura e Fantasia
-                                </label>
-                                <input class="form-check-input" type="checkbox" value="" id="ter">
-                                <label class="form-check-label" for="ter">
-                                    Terror
-                                </label>
-                            </div>
                             <div class="mb-4 form-floating">
                                 <textarea type="text" class="form-control" id="descricao" name="descricao"></textarea>
                                 <label for="descricao" class="form-label">Descrição</label>

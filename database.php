@@ -61,9 +61,3 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_participamesa(
     FOREIGN KEY (pas_ses_id) REFERENCES tb_sessoes(ses_id),
     FOREIGN KEY (pas_usu_id) REFERENCES tb_usuarios(usu_id))"
 );*/
-
-$connection->exec("CREATE TABLE IF NOT EXISTS tb_listatemas(
-    lit_id INTEGER PRIMARY KEY,
-    lit_mes_id INTEGER,
-    FOREIGN KEY (lit_mes_id) REFERENCES tb_mesas(mes_id))"
-);
