@@ -4,7 +4,7 @@ if (!hasUser()) {
     header('location: /');
 } else {
     $email = $_SESSION['email'];
-    $model = new Convite(connection());
+    $model = new Convites(connection());
 
     if ($_GET['message']) {
         $message = $_GET['message'];
@@ -20,8 +20,8 @@ if (!hasUser()) {
         }
     }
 
-    $userid = (new User(connection()))->getID($email);
-    $listaconvites = (new Convite(connection()))->findByPlayer($userid);
+    $userid = (new Usuarios(connection()))->getID($email);
+    $listaconvites = (new Convites(connection()))->findByPlayer($userid);
 
     $convites = [];
     foreach ($listaconvites as $linha) {

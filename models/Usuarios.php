@@ -1,8 +1,8 @@
 <?php
 
-class User
+class Usuarios
 {
-    protected $conn; //conexão
+    protected $conn; 
 
     public function __construct(SQLite3 $connection) {
         $this->conn = $connection;

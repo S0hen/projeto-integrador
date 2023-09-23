@@ -18,7 +18,7 @@ if (!hasUser()) {
         }
     }
 
-    $mesa = Mesa::findById($_GET['mesa']);
+    $mesa = Mesas::findById($_GET['mesa']);
     
     include ('pages/convites/convidar.php');
 

@@ -7,11 +7,11 @@ if (!hasUser() || !isset($mes_id)) {
     header('location: /');
 } else {
     $email = $_SESSION['email'];
-    $userid = (new User(connection()))->getID($email);
-    $mesa = Mesa::findById($mes_id);
+    $userid = (new Usuarios(connection()))->getID($email);
+    $mesa = Mesas::findById($mes_id);
 
     if ($userid == $mesa['mes_usu_idmestre'] ) {
-        Mesa::update($_POST['titulo'], $_POST['descricao'], $mes_id);
+        Mesas::update($_POST['titulo'], $_POST['descricao'], $mes_id);
         $changed = true;
         include('pages/mesas/editar.php');
     } else {

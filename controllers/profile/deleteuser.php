@@ -8,7 +8,7 @@
         $password2 = $_POST['senha2'];
 
         $email = $_SESSION['email'];
-        $model = new User(connection());
+        $model = new Usuarios(connection());
         $userPassword = $model->getPassword($email);
 
         if ($password == $password2 && password_verify($password, $userPassword)) {

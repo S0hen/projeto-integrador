@@ -1,6 +1,6 @@
 <?php
 
-class Mesa {
+class Mesas {
 
     static $conn;
 

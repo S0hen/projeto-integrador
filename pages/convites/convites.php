@@ -15,7 +15,7 @@
 
         foreach ($convites as $convite) {
 
-            $mesa_titulo = Mesa::getName($convite['con_mes_id']);
+            $mesa_titulo = Mesas::getName($convite['con_mes_id']);
 
             ?>
 

@@ -9,7 +9,7 @@ if (hasUser()) {
         $email = $_POST['email'];
         $senha = $_POST['password'];
     
-        $user = new User(connection());
+        $user = new Usuarios(connection());
         
         $data = $user->find($email);   
         

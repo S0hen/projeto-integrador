@@ -6,8 +6,8 @@ if (!hasUser() || !isset($mes_id)) {
     header('location: /');
 } else {
     $email = $_SESSION['email'];
-    $userid = (new User(connection()))->getID($email);
-    $mesa = Mesa::findById($mes_id);
+    $userid = (new Usuarios(connection()))->getID($email);
+    $mesa = Mesas::findById($mes_id);
 
     //Por enquanto essa será a única verificação porque
     //o sistema de convites ainda não existe, então não
@@ -15,7 +15,7 @@ if (!hasUser() || !isset($mes_id)) {
     //porém, quando tiver, será usado o ParMesa.
 
     if ($userid == $mesa['mes_usu_idmestre'] ) {
-        $sessoes = Sessao::findByMesId($mes_id);
+        $sessoes = Sessoes::findByMesId($mes_id);
         include('pages/sessoes/historico.php');
     } else {
         echo '<h2>Você não é o mestre dessa mesa!</h2>';
