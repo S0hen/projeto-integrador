@@ -13,7 +13,7 @@ if (!hasUser()) {
             echo '<script type="text/javascript">';
             echo ' alert("Convite aceito.")';
             echo '</script>';
-        } elseif ($message == 'deleted') {
+        } elseif ($message == 'recusado') {
             echo '<script type="text/javascript">';
             echo ' alert("Convite recusado.")';
             echo '</script>';
