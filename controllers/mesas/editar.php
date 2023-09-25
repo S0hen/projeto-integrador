@@ -5,14 +5,13 @@
 if (!hasUser() || !isset($mes_id)) {
     header('location: /');
 } else {
-    $mesa = Mesa::findById($mes_id);
+    $mesa = Mesas::findById($mes_id);
     $email = $_SESSION['email'];
     $userid = (new Usuarios(connection()))->getID($email);
     $mesa = Mesas::findById($mes_id);
 
     if ($userid == $mesa['mes_usu_idmestre'] ) {
         Mesas::update($_POST['titulo'], $_POST['descricao'], $mes_id);
-        $changed = true;
         include('pages/mesas/editar.php');
     } else {
         echo '<h2>Você não é o mestre dessa mesa!</h2>';
