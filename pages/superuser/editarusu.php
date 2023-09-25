@@ -135,34 +135,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-    data-bs-target="#retornar">
-    Voltar à seleção
-    </button> 
-
-    <div class="modal fade" id="retornar" tabindex="-1" aria-labelledby="retornarLabel"
-    aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="retornarLabel">
-                    Deseja voltar à página principal de superusuário?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-                </div>
-
-                <form action="/dashboard/superuser" method="POST">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">Não</button>
-                        <button type="submit" class="btn btn-success">Sim</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
+    <a href="/dashboard/superuser">Voltar</a>
 
 </body>
 </html>

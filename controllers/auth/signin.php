@@ -11,8 +11,12 @@ if (hasUser()) {
     
         $user = new Usuarios(connection());
         
+        if ($user->getTipo($email) === 'adm') {
+            header('location:/dashboard/superuser');
+        }
+
         $data = $user->find($email);   
-        
+
         if ($data && password_verify($_POST['password'], $data['usu_senha'])) {
             $_SESSION['email'] = $data['usu_email'];
             header('Location: /dashboard');
