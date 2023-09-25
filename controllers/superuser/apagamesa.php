@@ -2,18 +2,16 @@
 
     $rota = Route::getRoute('/dashboard/superuser/mesa/delete');
 
-    if (!hasUser() || ($_SERVER['REQUEST_METHOD'] === 'POST')) {
+    if (!hasUser() || (!authorize($rota))) {
         header('Location: /');
 
-    } else {
+    } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        header('Location: /superuser/dashboard');
 
-        if (authorize($rota)) {
-            
-            $mes_id = $_GET['mesa'];
-            Mesas::delete($mes_id);
-            
-            header('Location: /superuser/index');
-        }
+    } else {
+        $mes_id = $_GET['mesa'];
+        Mesas::delete($mes_id);
         
+        header('Location: /superuser/index');
     }
 ?>

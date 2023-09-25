@@ -1,11 +1,13 @@
 <?php
 
-    if (!hasUser()) {
+$rota = Route::getRoute('/dashboard/superuser/user/update/senha');
+
+    if ((!authorize($rota)) || (!hasUser())) {
         header('location: /');
     }
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        header('location: /dashboard');
+
+    if (($_SERVER['REQUEST_METHOD'] === 'GET')) {
+        header('location: /dashboard/superuser');
     }
     
     if(isset($_POST['nova_senha'])) {

@@ -37,8 +37,8 @@ Route::get('/dashboard/user/suasmesas/recusar', '/controllers/convites/refuse.ph
 Route::get('/dashboard/superuser', '/controllers/superuser/index.php', 'adm');
 Route::get('/dashboard/superuser/user', '/pages/superuser/editarusu.php', 'adm');
 Route::post('/dashboard/superuser/user/update/nome', '/controllers/superuser/updatenome.php', 'adm');
-Route::post('/dashboard/superuser/user/update/nome', '/controllers/superuser/updateemail.php', 'adm');
-Route::post('/dashboard/superuser/user/update/nome', '/controllers/superuser/updatesenha.php', 'adm');
+Route::post('/dashboard/superuser/user/update/email', '/controllers/superuser/updateemail.php', 'adm');
+Route::post('/dashboard/superuser/user/update/senha', '/controllers/superuser/updatesenha.php', 'adm');
 Route::get('/dashboard/superuser/user/delete', '/controllers/superuser/apagauser.php', 'adm');
 
 Route::get('/dashboard/superuser/mesa/editar', '/controllers/superuser/updatemesa.php', 'adm');
