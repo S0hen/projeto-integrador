@@ -21,6 +21,7 @@
         <br>
         <textarea name="message"></textarea>
 
+        <button type="submit">Enviar</button>
     </form>
 
     <br>

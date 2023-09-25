@@ -9,7 +9,7 @@
     }
     
     if(isset($_POST['nova_senha'])) {
-        $user_obj = new User(connection());
+        $user_obj = new Usuarios(connection());
         $email = $_POST['email'];
         $new_password = $_POST['nova_senha'];
         $user_obj->updatePassword($new_password, $email);

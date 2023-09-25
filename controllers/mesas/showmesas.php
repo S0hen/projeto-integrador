@@ -4,13 +4,13 @@ if (!hasUser()) {
     header('location: /');
 } else {
     $email = $_SESSION['email'];
-    $userid = (new User(connection()))->getID($email);
+    $userid = (new Usuarios(connection()))->getID($email);
 
-    $participamesas = ParMesa::findByUser($userid);
+    $participamesas = Participacoes::findByUser($userid);
 
     $mesas = [];
     foreach ($participamesas as $linha) {
-        $mesa = Mesa::findById($linha['pam_mes_id']);
+        $mesa = Mesas::findById($linha['par_mes_id']);
         if ($mesa) {
             $mesas[] = [
                 'mes_id' => $mesa['mes_id'],

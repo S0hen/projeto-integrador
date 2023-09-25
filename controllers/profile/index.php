@@ -3,7 +3,7 @@
 if (!hasUser()) {
     header('location: /');
 } else {
-    $user_obj = new User(connection());
+    $user_obj = new Usuarios(connection());
     $email = $_SESSION['email'];
     $username = $user_obj->getName($email);
 

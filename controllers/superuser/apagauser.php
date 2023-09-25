@@ -10,7 +10,7 @@
         if (authorize($rota)) {
             
             $email = $_GET['useremail'];
-            $model = new User(connection());
+            $model = new Usuarios(connection());
 
             $model->delete($email);
             

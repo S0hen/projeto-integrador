@@ -1,6 +1,6 @@
 <?php
 
-class Mesa {
+class Mesas {
 
     static $conn;
 
@@ -44,10 +44,10 @@ class Mesa {
 
     static function getName ($mes_id) {
         self::$conn = connection();
-        $query = "SELECT * FROM tb_mesas WHERE mes_usu_idmestre=:mes_usu_idmestre";
+        $query = "SELECT * FROM tb_mesas WHERE mes_id=:mes_id";
 
         $sttm = self::$conn->prepare($query);
-        $sttm->bindValue(":mes_usu_idmestre", $mes_id);
+        $sttm->bindValue(":mes_id", $mes_id);
         $result = $sttm->execute()->fetchArray();
 
         return $result['mes_titulo'];
@@ -76,10 +76,11 @@ class Mesa {
         return $result->fetchArray();
     }
 
-    public static function delete($mes_id) {
+    public function delete($mes_id) {
         $query = "DELETE FROM tb_mesas WHERE mes_id=:id";
-        $sttm = self::$conn->prepare($query);
+        $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":id", $mes_id);
         $result = $sttm->execute();
+        return $result->fetchArray();
     }
 }

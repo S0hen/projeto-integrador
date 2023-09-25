@@ -1,6 +1,6 @@
 <?php
 
-class Convite {
+class Convites {
 
     protected $conn; //conexão
 
@@ -10,7 +10,7 @@ class Convite {
 
     // usa igual aos de User
     public function find (string $nome) : Array | bool {
-        $userid = (new User(connection()))->getIDByName($nome);
+        $userid = (new Usuarios(connection()))->getIDByName($nome);
 
         $query = "SELECT * FROM tb_convites WHERE con_usu_id=:usu_id";
         $sttm = $this->conn->prepare($query);
@@ -40,7 +40,7 @@ class Convite {
     
     // usa igual aos de User
     public function getID (string $nome) {
-        $userid = (new User(connection()))->getIDByName($nome);
+        $userid = (new Usuarios(connection()))->getIDByName($nome);
 
         $model = $this->find($userid);
         return $model["con_id"];
@@ -75,26 +75,22 @@ class Convite {
     }
 
     // aceita o convite e para de mostrar (usado pelo convidado)
-    public function accept(string $con_id) {
-        $user = new User($this->conn);
-
+    public function accept(int $con_id) {
         $query = "UPDATE tb_convites SET con_status=:con_status, con_show=:con_show WHERE con_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":con_status", true);
         $sttm->bindValue(":con_show", false);
-        $sttm->bindValue(":id", $user->getID($con_id));
+        $sttm->bindValue(":id", $con_id);
         $result = $sttm->execute();
         return $result->fetchArray();
     }
 
     // status continua false e para de mostrar (usado pelo convidado)
-    public function refuse(string $con_id) {
-        $user = new User($this->conn);
-
+    public function refuse(int $con_id) {
         $query = "UPDATE tb_convites SET con_show=:con_show WHERE con_id=:id";
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":con_show", false);
-        $sttm->bindValue(":id", $user->getID($con_id));
+        $sttm->bindValue(":id", $con_id);
         $result = $sttm->execute();
         return $result->fetchArray();
     }

@@ -42,17 +42,12 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_sessoes(
     FOREIGN KEY (ses_mes_id) REFERENCES tb_mesas(mes_id))"
 );
 
-$connection->exec("CREATE TABLE IF NOT EXISTS tb_temas(
-    tem_id INTEGER PRIMARY KEY,
-    tem_tema TEXT)"
-);
-
-$connection->exec("CREATE TABLE IF NOT EXISTS tb_participamesa(
-    pam_id INTEGER PRIMARY KEY,
-    pam_mes_id INTEGER,
-    pam_usu_id INTEGER,
-    FOREIGN KEY (pam_mes_id) REFERENCES tb_mesas(mes_id),
-    FOREIGN KEY (pam_usu_id) REFERENCES tb_usuarios(usu_id))"
+$connection->exec("CREATE TABLE IF NOT EXISTS tb_participacoes(
+    par_id INTEGER PRIMARY KEY,
+    par_mes_id INTEGER,
+    par_usu_id INTEGER,
+    FOREIGN KEY (par_mes_id) REFERENCES tb_mesas(mes_id),
+    FOREIGN KEY (par_usu_id) REFERENCES tb_usuarios(usu_id))"
 );
 
 /*$connection->exec("CREATE TABLE IF NOT EXISTS tb_participasessao(
@@ -60,15 +55,8 @@ $connection->exec("CREATE TABLE IF NOT EXISTS tb_participamesa(
     pas_ses_id INTEGER,
     pas_usu_id INTEGER,
     FOREIGN KEY (pas_ses_id) REFERENCES tb_sessoes(ses_id),
-    FOREIGN KEY (pas_usu_id) REFERENCES tb_usuarios(usu_id))"
-);*/
-
-$connection->exec("CREATE TABLE IF NOT EXISTS tb_listatemas(
-    lit_id INTEGER PRIMARY KEY,
-    lit_mes_id INTEGER,
-    FOREIGN KEY (lit_mes_id) REFERENCES tb_mesas(mes_id))"
-);
-
+    FOREIGN KEY (pas_usu_id) REFERENCES tb_usuarios(usu_id))"*/
+    
 $connection->exec(
     "CREATE TABLE IF NOT EXISTS tb_convites(
         con_id INTEGER PRIMARY KEY,
@@ -82,7 +70,7 @@ $connection->exec(
         FOREIGN KEY (con_mes_id) REFERENCES tb_mesas(mes_id))" 
 );
 
-$superuser = new User(connection());
+$superuser = new Usuarios(connection());
 if (!$superuser->find('super@user')) {
     $superuser->save('superuser', 'super@user', 'adm123321', 'adm');
 }

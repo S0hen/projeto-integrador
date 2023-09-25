@@ -13,9 +13,9 @@
 
         <?php
 
-        foreach ($convite as $convite) {
+        foreach ($convites as $convite) {
 
-            $mesa_titulo = Mesa::getName($convite['con_mes_id']);
+            $mesa_titulo = Mesas::getName($convite['con_mes_id']);
 
             ?>
 
@@ -30,7 +30,16 @@
                     <?= $convite['con_mensagem'] ?>
                 </p>
 
-        <?php        
+                <?php
+
+                if ($convite['con_show'] == true) {
+                    ?>
+                    
+                    <a href="/dashboard/user/suasmesas/aceitar?conId=<?= urlencode($convite['con_id']) ?>">Aceitar</a>
+                    <a href="/dashboard/user/suasmesas/recusar?conId=<?= urlencode($convite['con_id']) ?>">Recusar</a>
+
+                <?php
+                }        
         } ?>
 
         <div class="row">

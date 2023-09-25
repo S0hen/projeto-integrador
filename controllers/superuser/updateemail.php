@@ -9,7 +9,7 @@
     }
     
     if(isset($_POST['novo_email'])) {
-        $user_obj = new User(connection());
+        $user_obj = new Usuarios(connection());
         $email = $_POST['email'];
         $new_email = $_POST['novo_email'];
         $user_obj->updateEmail($new_email, $email);

@@ -196,7 +196,7 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
       <div class="col-5">
         <main class="p-3 bg-dark bg-opacity-75 rounded-5">
             <?php
-              $user_obj = new User(connection());
+              $user_obj = new Usuarios(connection());
               $username = $user_obj->getName($_SESSION['email']);
               echo"<h1>Bem vindo, $username</h1>";
             ?>

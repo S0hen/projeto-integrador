@@ -5,7 +5,7 @@
     if (!hasUser() || $method==='GET') {
         header('Location: /');
     } else {
-        $user_obj = new User(connection());
+        $user_obj = new Usuarios(connection());
         $email = $_SESSION['email'];
         $password = $user_obj->getPassword($email);
         $new_email = $_POST['novo_email'];

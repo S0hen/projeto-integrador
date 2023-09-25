@@ -1,6 +1,6 @@
 <?php
 
-class Sessao {
+class Sessoes {
 
     static $conn;
 

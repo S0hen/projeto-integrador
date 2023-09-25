@@ -8,11 +8,11 @@ include __DIR__ . '/roteador.php';
 include __DIR__ . '/database.php';
 include __DIR__ . '/auth.php';
 
-include __DIR__ . '/models/User.php';
-include __DIR__ . '/models/Mesa.php';
-include __DIR__ . '/models/Sessao.php';
-include __DIR__ . '/models/ParMesa.php';
-include __DIR__ . '/models/Convite.php';
+include __DIR__ . '/models/Usuarios.php';
+include __DIR__ . '/models/Mesas.php';
+include __DIR__ . '/models/Sessoes.php';
+include __DIR__ . '/models/Participacoes.php';
+include __DIR__ . '/models/Convites.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
