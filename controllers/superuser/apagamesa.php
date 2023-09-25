@@ -10,7 +10,7 @@
         if (authorize($rota)) {
             
             $mes_id = $_GET['mes_id'];
-            Mesa::delete($mes_id);
+            Mesas::delete($mes_id);
             
             header('Location: /superuser/index');
         }
