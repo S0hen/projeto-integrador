@@ -50,7 +50,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/nome" method="POST">
-                    <input type="hidden" value="<?= $email ?>" name="email">
+                    <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="novo_nome">
@@ -84,7 +84,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/email" method="POST">
-                    <input type="hidden" value="<?= $email ?>" name="email">
+                    <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="novo_email">
@@ -118,7 +118,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/senha" method="POST">
-                    <input type="hidden" value="<?= $email ?>" name="email">
+                    <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="nova_senha">

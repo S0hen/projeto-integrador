@@ -25,7 +25,7 @@
 <h4>Back-End:</h4>
 <ul>
   <li> ̶R̶e̶f̶a̶z̶e̶r̶ ̶o̶ ̶f̶u̶n̶c̶i̶o̶n̶a̶m̶e̶n̶t̶o̶ ̶d̶e̶ ̶c̶a̶d̶a̶s̶t̶r̶o̶ ̶d̶e̶ ̶s̶e̶s̶s̶õ̶e̶s̶ ̶e̶ ̶m̶e̶s̶a̶s̶ ̶n̶o̶ ̶b̶a̶n̶c̶o̶ ̶d̶e̶ ̶d̶a̶d̶o̶s̶;̶</li>
-  <li>Algum cargo relacionado à autorização do sistema, como um administrador para gerenciar os usuários;</li>
+  <li> A̶l̶g̶u̶m̶ ̶c̶a̶r̶g̶o̶ ̶r̶e̶l̶a̶c̶i̶o̶n̶a̶d̶o̶ ̶à̶ ̶a̶u̶t̶o̶r̶i̶z̶a̶ç̶ã̶o̶ ̶d̶o̶ ̶s̶i̶s̶t̶e̶m̶a̶,̶ ̶c̶o̶m̶o̶ ̶u̶m̶ ̶a̶d̶m̶i̶n̶i̶s̶t̶r̶a̶d̶o̶r̶ ̶p̶a̶r̶a̶ ̶g̶e̶r̶e̶n̶c̶i̶a̶r̶ ̶o̶s̶ ̶u̶s̶u̶á̶r̶i̶o̶s̶;̶</li>
   <li> ̶F̶a̶z̶e̶r̶ ̶u̶m̶ ̶C̶R̶U̶D̶ ̶p̶a̶r̶a̶ ̶U̶s̶u̶á̶r̶i̶o̶;̶</li>
   <li> ̶F̶a̶z̶e̶r̶ ̶u̶m̶ ̶C̶R̶U̶D̶ ̶p̶a̶r̶a̶ ̶M̶e̶s̶a̶s̶;̶</li>
   <li> ̶F̶a̶z̶e̶r̶ ̶u̶m̶ ̶C̶R̶U̶D̶ ̶p̶a̶r̶a̶ ̶S̶e̶s̶s̶õ̶e̶s̶;̶</li>

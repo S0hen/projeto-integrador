@@ -20,7 +20,8 @@ Route::post('/dashboard/user/update/senha', '/controllers/profile/updatesenha.ph
 Route::post('/dashboard/user/delete', '/controllers/profile/apagar.php', '');
 
 Route::get('/dashboard/user/suasmesas', '/controllers/mesas/showmesas.php', '');
-Route::get('/dashboard/user/suasmesas/updater', '/controllers/mesas/editar.php', '');
+Route::get('/dashboard/user/suasmesas/update', '/controllers/mesas/editar.php', '');
+Route::get('/dashboard/user/suasmesas/delete', '/controllers/mesas/apagar.php', '');
 Route::post('/dashboard/mesas/criar', '/controllers/mesas/criar.php', '');
 
 Route::get('/dashboard/user/sessoes/agendamento', '/pages/sessoes/agendamento.php', '');
@@ -40,6 +41,7 @@ Route::get('/dashboard/superuser/user/update/nome', '/controllers/superuser/upda
 Route::get('/dashboard/superuser/user/update/nome', '/controllers/superuser/updatesenha.php', 'adm');
 Route::get('/dashboard/superuser/user/delete', '/controllers/superuser/apagauser.php', 'adm');
 
+Route::get('/dashboard/superuser/mesa/editar', '/controllers/superuser/updatemesa.php', 'adm');
 Route::get('/dashboard/superuser/mesa/delete', '/controllers/superuser/apagamesa.php', 'adm');
 
 ?>

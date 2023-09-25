@@ -14,6 +14,9 @@
 <body>
 
 <?php
+
+    $mesa = Mesas::findById($_GET['mes_id']);
+
     if ($_GET['message'] === 'sucesso') {
         echo '<script type="text/javascript">';
         echo ' alert("Dados alterados com sucesso")';
@@ -25,18 +28,19 @@
         <div class="col-12">
             <div class="row text-center mb-3">
                 <h1>
-                    Edite sua mesa
+                    Edite a mesa
                 </h1>
             </div>
-            <form action="/">
+            <form action="/dashboard/superuser/mesa/editar">
                 <div class="row justify-content-center mb-3">
+                        <input type="text" class="form-control" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="titulo" value="<?= $mesa['mes_titulo'] ?>">
+                        <input type="text" class="form-control" name="titulo" value="<?= urlencode($mesa['mes_titulo']) ?>">
                         <label for="titulo" class="form-label">Título da Mesa:</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea type="text" class="form-control"
-                            name="descricao"><?= $mesa['mes_descricao'] ?></textarea>
+                            name="descricao"><?= urldecode($mesa['mes_descricao']) ?></textarea>
                         <label for="descricao" class="form-label">Descrição da Mesa:</label>
                     </div>
                     <button type="submit" class="btn btn-success w-25">Salvar</button>
@@ -59,7 +63,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <a href="/dashboard/user/suasmesas/delete?mesa=<?= $mesa['mes_id'] ?>">
+                                <a href="/dashboard/superuser/mesa/delete?mesa=<?= urlencode($mesa['mes_id']) ?>">
                                     <button class="btn btn-danger">Sim, tenho certeza.</button>
                                 </a>
                                 <a href="/">
