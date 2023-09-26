@@ -10,14 +10,29 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
     body {
-        background-image: url('daniel-rosini-murlocs-rpg-final4.jpg');
+        background-image: url('Camp under the waterfall  battlemap.jpeg');
         background-position: center;
     }
 
     .container-fluid {
         opacity: 0.9;
+        margin: 50px auto;
+        height: 5px;
     }
+
+    .btn{
+        border-radius: 20px;
+        }
+        
 </style>
 
 <body>
