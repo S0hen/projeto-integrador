@@ -9,6 +9,20 @@
 
 <body>
 
+    <?php
+        if (isset($_GET['message'])) {
+            if ($_GET['message'] === 'updated') {
+                echo '<script type="text/javascript">';
+                echo ' alert("Dados da sessão alterados com sucesso!")';
+                echo '</script>';
+            } else if ($_GET['message'] === 'deleted') {
+                echo '<script type="text/javascript">';
+                echo ' alert("Sessão excluída com êxito.")';
+                echo '</script>';
+            }
+        }
+    ?>
+
     <div class="container">
         <h2>Título da mesa:
             <?= $mesa['mes_titulo'] ?>
