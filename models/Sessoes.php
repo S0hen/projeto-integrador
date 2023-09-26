@@ -44,4 +44,24 @@ class Sessoes {
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+
+    static function update(string $horario, string $data, int $mes_id) {
+        self::$conn = connection();
+        $query = "UPDATE tb_sessoes SET ses_horario=:horario, ses_datacalendario=:ses_datacalendario WHERE ses_mes_id=:ses_mes_id";
+        $sttm = self::$conn->prepare($query);
+        $sttm->bindValue(":horario", $horario);
+        $sttm->bindValue(":ses_datacalendario", $data);
+        $sttm->bindValue(":ses_mes_id", $mes_id);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
+    
+    static function delete(int $ses_id) {
+        self::$conn = connection();
+        $query = "DELETE FROM tb_sessoes WHERE ses_id=:ses_id";
+        $sttm = self::$conn->prepare($query);
+        $sttm->bindValue(":ses_id", $ses_id);
+        $result = $sttm->execute();
+        return $result->fetchArray();
+    }
 }
