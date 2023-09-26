@@ -12,7 +12,7 @@ function authorize (Route $rota) {
 
     if ($rota->getProfile() != '') {
             $email = $_SESSION['email'];
-            $model = new User(connection());
+            $model = new Usuarios(connection());
     
             if ($model->find($email)) {            
                 return $model->getTipo($email) === 'adm';
