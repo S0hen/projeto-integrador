@@ -7,10 +7,8 @@ $rota = Route::getRoute('/dashboard/superuser/mesa/editar');
     if ((!hasUser()) || (!isset($mes_id)) || (!authorize($rota)) || ($_SERVER['REQUEST_METHOD'] === 'GET')) {
         header('location: /');
     } else {
-        $mesa = Mesas::findById($mes_id);
-
-        Mesas::update($_POST['titulo'], $_POST['descricao'], $mes_id);
-        include('pages/superuser/editamesasr.php');
+        $result = Mesas::update($_POST['titulo'], $_POST['descricao'], $mes_id);
+        header('location: /dashboard/superuser');
     }
 
 ?>

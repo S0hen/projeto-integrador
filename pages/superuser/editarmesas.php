@@ -14,8 +14,6 @@
 
 <?php
 
-    $mesa = Mesas::findById($_GET['mesa']);
-
     if ($_GET['message'] === 'sucesso') {
         echo '<script type="text/javascript">';
         echo ' alert("Dados alterados com sucesso")';
@@ -30,11 +28,12 @@
                     Edite a mesa
                 </h1>
             </div>
-            <form action="/dashboard/superuser/mesa/editar">
+            <form action="/dashboard/superuser/mesa/editar" method="POST">
                 <div class="row justify-content-center mb-3">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
-                        <label for="mesa" class="form-label">ID da Mesa</label>
+                        <input type="hidden" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
+                        <input type="text" class="form-control text-muted" name="showid" value="<?= urlencode($mesa['mes_id']) ?>" disabled>
+                        <label for="showid" class="form-label">ID da Mesa</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="titulo" value="<?= urlencode($mesa['mes_titulo']) ?>">

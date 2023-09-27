@@ -42,7 +42,7 @@ Route::post('/dashboard/superuser/user/update/senha', '/controllers/superuser/up
 Route::get('/dashboard/superuser/user/delete', '/controllers/superuser/apagauser.php', 'adm');
 
 Route::get('/dashboard/superuser/mesa', '/pages/superuser/editarmesas.php', 'adm');
-Route::get('/dashboard/superuser/mesa/editar', '/controllers/superuser/updatemesa.php', 'adm');
+Route::post('/dashboard/superuser/mesa/editar', '/controllers/superuser/updatemesa.php', 'adm');
 Route::get('/dashboard/superuser/mesa/delete', '/controllers/superuser/apagamesa.php', 'adm');
 
 ?>
