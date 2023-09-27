@@ -15,6 +15,7 @@
 
 <?php
 
+    // pega o id da mesa pelo get, e usa pro que precisar
     $mesa = Mesas::findById($_GET['mes_id']);
 
     if ($_GET['message'] === 'sucesso') {
@@ -32,8 +33,10 @@
                 </h1>
             </div>
             <form action="/dashboard/superuser/mesa/editar">
+                <!-- o id da mesa é enviado por post por meio do hidden input, e é usado pra fazer o update em
+                /controllers/superuser/updatemesa.php -->
                 <div class="row justify-content-center mb-3">
-                        <input type="text" class="form-control" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
+                        <input type="hidden" class="form-control" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="titulo" value="<?= urlencode($mesa['mes_titulo']) ?>">
                         <label for="titulo" class="form-label">Título da Mesa:</label>
@@ -79,7 +82,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <a href="/dashboard/user/suasmesas" class="btn btn-primary w-25">Voltar</a>
+                <a href="/dashboard/superuser" class="btn btn-primary w-25">Voltar</a>
             </div>
         </div>
     </div>

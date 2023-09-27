@@ -76,6 +76,25 @@ class Mesas {
         return $result->fetchArray();
     }
 
+    // método usado pelo superuser
+    public static function all () {
+
+        $db_conn = self::$conn ?? connection();
+
+        $result = $db_conn->query('SELECT * FROM tb_mesas');
+
+        $listamesas = array();
+        while ($mesa = $result->fetchArray()) {
+            array_push($listamesas, [
+                'mes_id' => $mesa['mes_id'],
+                'mes_titulo' => $mesa['mes_titulo'],
+                'mes_descricao' => $mesa['mes_descricao'],
+                'mes_usu_idmestre' => $mesa['mes_usu_idmestre']
+            ]);
+        }
+        return $listamesas;
+    }
+
     public static function delete($mes_id) {
         $query = "DELETE FROM tb_mesas WHERE mes_id=:id";
         $sttm = self::$conn->prepare($query);

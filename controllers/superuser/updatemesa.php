@@ -10,7 +10,7 @@ $rota = Route::getRoute('/dashboard/superuser/mesa/editar');
         $mesa = Mesas::findById($mes_id);
 
         Mesas::update($_POST['titulo'], $_POST['descricao'], $mes_id);
-        include('pages/superuser/editamesasr.php');
+        include('pages/superuser/editamesas.php');
     }
 
 ?>

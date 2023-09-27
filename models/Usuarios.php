@@ -89,6 +89,26 @@ class Usuarios
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+    
+    // método usado pelo superuser
+    public function all () {
+
+        $db_conn = $this->conn;
+
+        $result = $db_conn->query('SELECT * FROM tb_usuarios');
+
+        $listausuarios = array();
+        while ($usuario = $result->fetchArray()) {
+            array_push($listausuarios, [
+                'usu_id' => $usuario['usu_id'],
+                'usu_nome' => $usuario['usu_nome'],
+                'usu_email' => $usuario['usu_email'],
+                'usu_senha' => $usuario['usu_senha'],
+                'usu_tipo' => $usuario['usu_tipo']
+            ]);
+        }
+        return $listausuarios;
+    }
 
     public function delete($email) {
         $query = "DELETE FROM tb_usuarios WHERE usu_id=:id";
