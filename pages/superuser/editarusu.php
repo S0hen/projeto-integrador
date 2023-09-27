@@ -12,6 +12,11 @@
 <body>
 
     <?php
+    
+    // pegando por get o email do usuário, e assim tirando o resto das informações
+    $user_obj = new Usuarios(connection());
+    $email = $_GET['user_email'];
+    $username = $user_obj->getName($email);
 
     if ($_GET['message']) {
         $message = $_GET['message'];
@@ -33,9 +38,6 @@
         <h4>Email atual:
         <?= $email ?>
         </h4>
-        <h4>Senha atual:
-        <?= $senha ?>
-        </h4>
     </div>
 
     <button type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -54,6 +56,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/nome" method="POST">
+                    <!-- envia o email pelo hidden, e no controller usa pro find e o que mais precisar -->
                     <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
@@ -88,6 +91,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/email" method="POST">
+                    <!-- envia o email pelo hidden, e no controller usa pro find e o que mais precisar -->
                     <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
@@ -122,6 +126,7 @@
                 </div>
 
                 <form action="/dashboard/superuser/user/update/senha" method="POST">
+                    <!-- envia o email pelo hidden, e no controller usa pro find e o que mais precisar -->
                     <input type="hidden" value="<?= urldecode($email) ?>" name="email">
                     <div class="modal-body">
                         <div class="form-floating mb-3">
@@ -139,10 +144,38 @@
         </div>
     </div>
 
+    <!-- fiz o modal pra deletar também porque percebi que não tinha -->
+    <div class="modal fade" id="apagarmesa" tabindex="-1" aria-labelledby="apagarmesaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="apagarmesaLabel">Tem certeza de que deseja
+                        apagar este usuário?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- envia o email do usuário por get e usa no controller e pá -->
+                    <a href="/dashboard/superuser/user/delete?useremail=<?= urlencode($email) ?>">
+                        <button class="btn btn-danger">Sim, tenho certeza.</button>
+                    </a>
+                    <a href="/">
+                        <button class="btn btn-secondary">Cancelar</button>
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <a href="/dashboard/superuser">Voltar</a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
     <p>Senha do usuário: <?= $usuario['usu_nome'] ?></p>
 
     <button>
-        <a href="/dashboard/superuser/user?usuario=<?= urlencode($usuario['usu_id']) ?>">Editar usuário</a>
+        <a href="/dashboard/superuser/user?user_email=<?= urlencode($usuario['usu_email']) ?>">Editar usuário</a>
     </button>
     
     <?php
