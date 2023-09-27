@@ -66,7 +66,6 @@ class Convites {
     // usa no controller fazer um foreach e mostrar todos
     public function findById (int $con_id) {
         $query = "SELECT * FROM tb_convites WHERE con_id=:con_id";
-
         $sttm = $this->conn->prepare($query);
         $sttm->bindValue(":con_id", $con_id);
         $result = $sttm->execute()->fetchArray();
