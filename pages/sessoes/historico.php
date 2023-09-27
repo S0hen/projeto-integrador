@@ -44,6 +44,15 @@
             </div>
 
             <?php
+            if ($userid == $mesa['mes_usu_idmestre']) {
+            ?>
+                <button>
+                    <a href="/dashboard/user/sessoes/reagendamento?mes_id=<?= $mesa['mes_id'] ?>">
+                        Editar sessão
+                    </a>
+                </button>
+            <?php
+            } 
         } ?>
 
         <div class="row">

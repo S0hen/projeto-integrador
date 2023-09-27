@@ -27,7 +27,8 @@ Route::post('/dashboard/mesas/criar', '/controllers/mesas/criar.php', '');
 Route::get('/dashboard/user/sessoes/agendamento', '/pages/sessoes/agendamento.php', '');
 Route::get('/dashboard/user/sessoes', '/controllers/sessoes/historico.php', '');
 Route::post('/dashboard/user/sessoes/agendar', '/controllers/sessoes/agendar.php', '');
-Route::post('/dashboard/user/update', '/controllers/sessoes/update.php', '');
+Route::get('/dashboard/user/sessoes/reagendamento', '/pages/sessoes/editar.php', '');
+Route::post('/dashboard/user/sessoes/update', '/controllers/sessoes/update.php', '');
 Route::get('/dashboard/user/apagar', '/controllers/sessoes/apagar.php', '');
 
 Route::get('/dashboard/user/suasmesas/recebidos', '/controllers/convites/showconvites.php', '');

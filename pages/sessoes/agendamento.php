@@ -46,10 +46,6 @@
                                 <input type="time" class="form-control" id="horario" name="horario">
                                 <label for="horario" class="form-label">Horário</label>
                             </div>
-                            <div class="mb-4 form-floating">
-                                <input type="text" class="form-control" id="jogadores" name="players">
-                                <label for="players" class="form-label">Jogadores</label>
-                            </div>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-success addingcolor text-white w-75">Agendar</button>
                             </div>
