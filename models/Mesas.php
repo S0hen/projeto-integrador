@@ -67,7 +67,8 @@ class Mesas {
     }
 
     static function update(string $titulo, string $descricao, int $mes_id) {
-        $query = "UPDATE tb_mesas SET mes_titulo=:mes_titulo, mes_descricao=:mes_descricao WHERE med_id=:mes_id";
+        self::$conn = connection(); 
+        $query = "UPDATE tb_mesas SET mes_titulo=:mes_titulo, mes_descricao=:mes_descricao WHERE mes_id=:mes_id";
         $sttm = self::$conn->prepare($query);
         $sttm->bindValue(":mes_titulo", $titulo);
         $sttm->bindValue(":mes_descricao", $descricao);
@@ -77,10 +78,29 @@ class Mesas {
     }
 
     public static function delete($mes_id) {
-        $query = "DELETE FROM tb_mesas WHERE mes_id=:id";
+        self::$conn = connection();
+        $query = "DELETE FROM tb_mesas WHERE mes_id=:mes_id";
         $sttm = self::$conn->prepare($query);
-        $sttm->bindValue(":id", $mes_id);
+        $sttm->bindValue(":mes_id", $mes_id);
         $result = $sttm->execute();
         return $result->fetchArray();
+    }
+
+    public static function getAll() {
+        
+        $db_conn = self::$conn ?? connection();
+
+        $result = $db_conn->query('SELECT * FROM tb_mesas');
+
+        $mesas = array();
+        while ($mesa = $result->fetchArray()) {
+            array_push($mesas, [
+                'mes_id' => $mesa['mes_id'],
+                'mes_titulo' => $mesa['mes_titulo'],
+                'mes_descricao' => $mesa['mes_descricao'],
+                'mes_usu_idmestre' => $mesa['mes_usu_idmestre'],
+            ]);
+        }
+        return $mesas;
     }
 }

@@ -9,17 +9,17 @@ if (hasUser()) {
         $email = $_POST['email'];
         $senha = $_POST['password'];
     
-        $user = new Usuarios(connection());
-        
-        if ($user->getTipo($email) === 'adm') {
-            header('location:/dashboard/superuser');
-        }
-
-        $data = $user->find($email);   
+        $data = (new Usuarios(connection()))->find($email);  
 
         if ($data && password_verify($_POST['password'], $data['usu_senha'])) {
             $_SESSION['email'] = $data['usu_email'];
-            header('Location: /dashboard');
+
+            if ($data['usu_tipo'] === 'adm') {
+                header('location:/dashboard/superuser');
+            } else {
+                header('Location: /dashboard');
+            }
+            
         } else {
             header('Location: /register');
         }

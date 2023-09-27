@@ -10,8 +10,8 @@
 
     } else {
         $mes_id = $_GET['mesa'];
-        Mesas::delete($mes_id);
-        
-        header('Location: /superuser/index');
+        $result = Mesas::delete($mes_id);
+
+        header('Location: /dashboard/superuser');
     }
 ?>

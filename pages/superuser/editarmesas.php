@@ -8,14 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-
 </head>
 
 <body>
 
 <?php
 
-    $mesa = Mesas::findById($_GET['mes_id']);
+    $mesa = Mesas::findById($_GET['mesa']);
 
     if ($_GET['message'] === 'sucesso') {
         echo '<script type="text/javascript">';
@@ -33,7 +32,10 @@
             </div>
             <form action="/dashboard/superuser/mesa/editar">
                 <div class="row justify-content-center mb-3">
+                    <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="mesa" value="<?= urlencode($mesa['mes_id']) ?>">
+                        <label for="mesa" class="form-label">ID da Mesa</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="titulo" value="<?= urlencode($mesa['mes_titulo']) ?>">
                         <label for="titulo" class="form-label">Título da Mesa:</label>
