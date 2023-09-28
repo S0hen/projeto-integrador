@@ -52,6 +52,17 @@ class Mesas {
 
         return $result['mes_titulo'];
     }
+    
+    static function getMestId ($mes_id) {
+        self::$conn = connection();
+        $query = "SELECT * FROM tb_mesas WHERE mes_id=:mes_id";
+
+        $sttm = self::$conn->prepare($query);
+        $sttm->bindValue(":mes_id", $mes_id);
+        $result = $sttm->execute()->fetchArray();
+
+        return $result['mes_usu_idmestre'];
+    }
 
 
     static function getId(string $titulo, int $idmestre) {
