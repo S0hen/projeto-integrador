@@ -23,7 +23,7 @@ if (isset($_POST['titulo'], $_POST['descricao'], $_SESSION['email'])) {
         $result = Mesas::save($titulo, $descricao, $mestre);
         $mes_id = Mesas::getId($titulo, $mestre);
         $add = Participacoes::save($mes_id, $mestre);
-        header('location: /dashboard');
+        header('location: /dashboard/user/suasmesas');
     } else {
         header('location: /dashboard/mesas/criacao?message=error');
     }
