@@ -51,6 +51,11 @@
                         Editar sessão
                     </a>
                 </button>
+                <button>
+                    <a href="/dashboard/user/apagar?sessao=<?= $sessao['ses_id'] ?>">
+                        Excluir sessão
+                    </a>
+                </button>
             <?php
             } 
         } ?>
