@@ -78,7 +78,7 @@
                                         <label for="novo_nome" class="form-label">Digite o seu novo nome:</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="confirma_senha">
+                                        <input type="password" class="form-control" name="confirma_senha">
                                         <label for="confirma_senha" class="form-label">Confirme com sua
                                     senha:</label>
                                     </div>
@@ -120,7 +120,7 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="confirma_senha">
+                                        <input type="password" class="form-control" name="confirma_senha">
                                         <label for="confirma_senha" class="form-label">Confirme com sua
                                         senha:</label>
                                     </div>
@@ -158,11 +158,11 @@
                             <form action="/dashboard/user/update/senha" method="POST">
                                 <div class="modal-body">
                                     <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="nova_senha">
+                                    <input type="password" class="form-control" name="nova_senha">
                                     <label for="nova_senha" class="form-label">Digite a sua nova senha:</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="confirma_senha">
+                                    <input type="password" class="form-control" name="confirma_senha">
                                     <label for="confirma_senha" class="form-label">Confirme com sua
                                     senha atual:</label>
                                 </div>
