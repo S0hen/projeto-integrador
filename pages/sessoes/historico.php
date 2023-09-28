@@ -1,73 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <?php
-        if (isset($_GET['message'])) {
-            if ($_GET['message'] === 'updated') {
-                echo '<script type="text/javascript">';
-                echo ' alert("Dados da sessão alterados com sucesso!")';
-                echo '</script>';
-            } else if ($_GET['message'] === 'deleted') {
-                echo '<script type="text/javascript">';
-                echo ' alert("Sessão excluída com êxito.")';
-                echo '</script>';
-            }
+    <title>Histórico de Sessão</title>
+    
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Your custom CSS styles -->
+    <style>
+        body {
+            background-image: url('../../assets/daniel-rosini-ritual-final.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
         }
-    ?>
+        
+        .custom-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
 
-    <div class="container">
-        <h2>Título da mesa:
-            <?= $mesa['mes_titulo'] ?>
-        </h2>
+        .custom-card p {
+            font-size: 18px;
+        }
 
-        <?php
-
-        foreach ($sessoes as $sessao) {
-
-            ?>
-
-            <div class="row">
-                <p>Dia da Sessão:
-                    <?= $sessao['ses_datacalendario'] ?>
-                </p>
-                <p>Horário:
-                    <?= $sessao['ses_horario'] ?>
-                </p>
+        .custom-card h2 {
+            font-size: 24px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card custom-card">
+            <div class="card-body">
+                <h2 class="card-title text-center">Título da mesa: <?= $mesa['mes_titulo'] ?></h2>
+                <?php foreach ($sessoes as $sessao) { ?>
+                    <div class="row">
+                        <p class="col-md-6">Dia da Sessão: <?= $sessao['ses_datacalendario'] ?></p>
+                        <p class="col-md-6">Horário: <?= $sessao['ses_horario'] ?></p>
+                    </div>
+                <?php } ?>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="/dashboard/user">
+                            <button class="btn btn-primary">Voltar para as suas mesas</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <?php
-            if ($userid == $mesa['mes_usu_idmestre']) {
-            ?>
-                <button>
-                    <a href="/dashboard/user/sessoes/reagendamento?mes_id=<?= $mesa['mes_id'] ?>">
-                        Editar sessão
-                    </a>
-                </button>
-                <button>
-                    <a href="/dashboard/user/apagar?sessao=<?= $sessao['ses_id'] ?>">
-                        Excluir sessão
-                    </a>
-                </button>
-            <?php
-            } 
-        } ?>
-
-        <div class="row">
-            <a href="/dashboard/user">
-                <button>Voltar para as suas mesas</button>
-            </a>
         </div>
-
     </div>
 
+    <!-- Include Bootstrap JS and jQuery (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
