@@ -113,4 +113,22 @@ class Mesas {
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+
+    public static function getAll() {
+        
+        $db_conn = self::$conn ?? connection();
+
+        $result = $db_conn->query('SELECT * FROM tb_mesas');
+
+        $mesas = array();
+        while ($mesa = $result->fetchArray()) {
+            array_push($mesas, [
+                'mes_id' => $mesa['mes_id'],
+                'mes_titulo' => $mesa['mes_titulo'],
+                'mes_descricao' => $mesa['mes_descricao'],
+                'mes_usu_idmestre' => $mesa['mes_usu_idmestre'],
+            ]);
+        }
+        return $mesas;
+    }
 }

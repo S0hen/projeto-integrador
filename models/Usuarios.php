@@ -117,5 +117,21 @@ class Usuarios
         $result = $sttm->execute();
         return $result->fetchArray();
     }
+
+    public function getAll() {
+        $result = $this->conn->query("SELECT * FROM tb_usuarios");
+
+        $usuarios = array();
+        while($usuario = $result->fetchArray()) {
+            array_push($usuarios, [
+                'usu_id' => $usuario['usu_id'],
+                'usu_nome' => $usuario['usu_nome'],
+                'usu_email' => $usuario['usu_email'],
+                'usu_senha' => $usuario['usu_senha']
+            ]);
+        }
+
+        return $usuarios;
+    }
 }
 ?>
