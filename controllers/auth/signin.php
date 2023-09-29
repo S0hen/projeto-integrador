@@ -14,8 +14,8 @@ if (hasUser()) {
         if ($data && password_verify($_POST['password'], $data['usu_senha'])) {
             $_SESSION['email'] = $data['usu_email'];
 
-            if ($data['usu_tipo'] === 'adm') {
-                header('location:/dashboard/superuser');
+            if ($data['usu_tipo'] == 'adm') {
+                header('location: /dashboard/superuser');
             } else {
                 header('Location: /dashboard');
             }

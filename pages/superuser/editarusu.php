@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </head>
 <body>
 
@@ -13,7 +17,6 @@
     $user_obj = new Usuarios(connection());
     $email = $_GET['user_email'];
     $username = $user_obj->getName($email);
-    $senha = $user_obj->getPassword($email);
 
     if ($_GET['message']) {
         $message = $_GET['message'];
@@ -34,9 +37,6 @@
         </h4>
         <h4>Email atual:
         <?= $email ?>
-        </h4>
-        <h4>Senha atual:
-        <?= $senha ?>
         </h4>
     </div>
 
@@ -174,5 +174,8 @@
 
     <a href="/dashboard/superuser">Voltar</a>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
