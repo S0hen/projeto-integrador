@@ -16,7 +16,7 @@
 <?php
 
     // pega o id da mesa pelo get, e usa pro que precisar
-    $mesa = Mesas::findById($_GET['mes_id']);
+    $mesa = Mesas::findById($_GET['mesa']);
 
     if ($_GET['message'] === 'sucesso') {
         echo '<script type="text/javascript">';

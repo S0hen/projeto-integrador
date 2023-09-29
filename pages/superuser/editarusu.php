@@ -30,7 +30,7 @@
 
     ?>
 
-    <div class="text-center">
+    <div class="text-center mb-3">
         <img src="../../assets/profile.png" class="rounded" alt="...">
         <h4>Nome de usuário atual:
         <?= $username ?>
@@ -40,11 +40,27 @@
         </h4>
     </div>
 
-    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-    data-bs-target="#mudarnomemodal">
-    Alterar usuário
-    </button>
-    <hr>
+    <div class="text-center">
+        <div>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#mudarnomemodal">
+            Alterar nome
+            </button>
+            
+            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#mudaremailmodal">
+            Alterar email
+            </button>
+            
+            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#mudarsenha">
+            Alterar senha
+            </button>
+
+        </div>
+    </div>
+
+    
 
     <div class="modal fade" id="mudarnomemodal" tabindex="-1" aria-labelledby="mudarnomemodalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -75,12 +91,6 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-    data-bs-target="#mudaremailmodal">
-    Alterar email
-    </button>
-    <hr>
-
     <div class="modal fade" id="mudaremailmodal" tabindex="-1" aria-labelledby="mudaremailmodalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -109,12 +119,6 @@
             </div>
         </div>
     </div>
-    
-    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-    data-bs-target="#mudarsenha">
-    Alterar senha
-    </button>
-    <hr>
 
     <div class="modal fade" id="mudarsenha" tabindex="-1" aria-labelledby="mudarsenhaLabel" aria-hidden="true">
         <div class="modal-dialog">
