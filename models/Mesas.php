@@ -78,7 +78,7 @@ class Mesas {
     }
 
     static function update(string $titulo, string $descricao, int $mes_id) {
-        $query = "UPDATE tb_mesas SET mes_titulo=:mes_titulo, mes_descricao=:mes_descricao WHERE med_id=:mes_id";
+        $query = "UPDATE tb_mesas SET mes_titulo=:mes_titulo, mes_descricao=:mes_descricao WHERE mes_id=:mes_id";
         $sttm = self::$conn->prepare($query);
         $sttm->bindValue(":mes_titulo", $titulo);
         $sttm->bindValue(":mes_descricao", $descricao);

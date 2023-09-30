@@ -28,8 +28,9 @@
                     Edite sua mesa
                 </h1>
             </div>
-            <form action="/">
+            <form action="/dashboard/user/suasmesas/update" method="POST">
                 <div class="row justify-content-center mb-3">
+                    <input type="hidden" name="mes_id" value="<?= $mesa['mes_id'] ?>">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="titulo" value="<?= $mesa['mes_titulo'] ?>">
                         <label for="titulo" class="form-label">Título da Mesa:</label>
