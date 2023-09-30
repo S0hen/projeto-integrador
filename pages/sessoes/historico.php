@@ -6,7 +6,10 @@
     <title>Histórico de Sessão</title>
     
     <!-- Include Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     
     <!-- Your custom CSS styles -->
     <style>
@@ -56,11 +59,33 @@
                             Editar sessão
                         </a>
                     </button>
-                    <button>
-                        <a href="/dashboard/user/apagar?sessao=<?= $sessao['ses_id'] ?>">
-                            Excluir sessão
-                        </a>
+                    <!-- Botão de apagar sessão-->
+                    <button type="button" class="btn btn-danger w-25" data-bs-toggle="modal" data-bs-target="#apagarsessao">
+                        Apagar sessão
                     </button>
+
+                    <!-- Modal de excluir sessão-->
+                    <div class="modal fade" id="apagarsessao" tabindex="-1" aria-labelledby="apagarsessaoLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-dark" id="apagarsessaoLabel">Tem certeza de que deseja
+                                        apagar a sessão?</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="/dashboard/user/apagar?sessao=<?= $sessao['ses_id'] ?>">
+                                        <button class="btn btn-danger">Sim, tenho certeza.</button>
+                                    </a>
+                                    <a>
+                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php
                     } 
                 } ?>
@@ -76,8 +101,8 @@
     </div>
 
     <!-- Include Bootstrap JS and jQuery (if needed) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+crossorigin="anonymous"></script>
 </body>
 </html>
