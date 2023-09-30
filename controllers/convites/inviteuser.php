@@ -7,13 +7,17 @@
         $nome = $_POST['nome'];
         $mesa = $_POST['mesa'];
 
+        $email = $_SESSION['email'];
+        $usu_id = (new Usuarios(connection()))->getID($email);
+
         $mestre_id = Mesas::getMestId($mesa);
-        $usu_id = (new Usuarios(connection()))->getIDByName($nome);
 
         if ($usu_id === $mestre_id) {
             $convite = new Convites(connection());
             
-            $convite->invite($message, $usu_id, $mesa);
+            $destinatario = (new Usuarios(connection()))->getIDByName($nome);
+
+            $convite->invite($message, $usu_id, $destinatario);
             header('Location:/dashboard/user/suasmesas/convite?message=enviado');
         } else {
             echo '<h2>Você não é o mestre dessa mesa!</h2>';
