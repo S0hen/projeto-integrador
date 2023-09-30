@@ -63,13 +63,9 @@
                                 <a href="/dashboard/user/suasmesas/delete?mesa=<?= $mesa['mes_id'] ?>">
                                     <button class="btn btn-danger">Sim, tenho certeza.</button>
                                 </a>
-                                <a href="/">
-                                    <button class="btn btn-secondary">Cancelar</button>
+                                <a>
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                 </a>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </div>
                     </div>

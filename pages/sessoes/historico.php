@@ -45,7 +45,7 @@
                 <h2 class="card-title text-center">Título da mesa: <?= $mesa['mes_titulo'] ?></h2>
                 <?php foreach ($sessoes as $sessao) { ?>
                     <div class="row">
-                        <p class="col-md-6">Dia da Sessão: <?= $sessao['ses_datacalendario'] ?></p>
+                        <p class="col-md-6">Dia da sessão: <?= $sessao['ses_datacalendario'] ?></p>
                         <p class="col-md-6">Horário: <?= $sessao['ses_horario'] ?></p>
                     </div>
                 <?php } ?>
