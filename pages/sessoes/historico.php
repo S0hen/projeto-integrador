@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico de Sessão</title>
-    
-    <!-- Include Bootstrap CSS -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    
-    <!-- Your custom CSS styles -->
+
+
     <style>
+
         body {
             background-image: url('../../assets/daniel-rosini-ritual-final.jpg');
             background-size: cover;
@@ -30,7 +31,6 @@
             max-width: 600px; 
             margin: 0 auto; 
         }
-
         .custom-card p {
             font-size: 18px;
         }
@@ -38,6 +38,30 @@
         .custom-card h2 {
             font-size: 24px;
         }
+
+        .btn-custom  {
+            background-color: blue; 
+            color: white; 
+            border: none; 
+            padding: 8px 16px; 
+            margin-right: 10px; 
+            width: 150px;
+            height: 40px;
+        }
+        .div-going-back {
+            padding-top: 20px;
+
+        }
+
+       .btn-custom a {
+            color: white; 
+            text-decoration: none; 
+        }
+
+        .card-title {
+            margin-bottom: 20px;
+        }
+
         
     </style>
 </head>
@@ -54,15 +78,15 @@
                     <?php
                     if ($userid == $mesa['mes_usu_idmestre']) {
                     ?>
-                    <button>
-                        <a href="/dashboard/user/sessoes/reagendamento?mes_id=<?= $mesa['mes_id'] ?>">
-                            Editar sessão
-                        </a>
-                    </button>
-                    <!-- Botão de apagar sessão-->
-                    <button type="button" class="btn btn-danger w-25" data-bs-toggle="modal" data-bs-target="#apagarsessao">
-                        Apagar sessão
-                    </button>
+                    
+                    <div class="row justify-content-center">
+                        <button class="btn btn-custom">
+                            <a href="/dashboard/user/sessoes/reagendamento?mes_id=<?= $mesa['mes_id'] ?>">Editar sessão</a>
+                        </button>
+                        <button type="button" class="btn w-30 btn-custom bg-danger" data-bs-toggle="modal" data-bs-target="#apagarsessao">
+                            Apagar sessão
+                        </button>
+                    </div>
 
                     <!-- Modal de excluir sessão-->
                     <div class="modal fade" id="apagarsessao" tabindex="-1" aria-labelledby="apagarsessaoLabel"
@@ -90,9 +114,9 @@
                     } 
                 } ?>
                 <div class="row">
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12 text-center div-going-back">
                         <a href="/dashboard/user">
-                            <button class="btn btn-primary">Voltar para as suas mesas</button>
+                            <button class="btn btn-primary ">Voltar para as suas mesas</button>
                         </a>
                     </div>
                 </div>
@@ -100,9 +124,12 @@
         </div>
     </div>
 
-    <!-- Include Bootstrap JS and jQuery (if needed) -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-crossorigin="anonymous"></script>
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </body>
 </html>
