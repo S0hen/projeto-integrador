@@ -17,7 +17,7 @@
             
             $destinatario = (new Usuarios(connection()))->getIDByName($nome);
 
-            $convite->invite($message, $usu_id, $destinatario);
+            $convite->invite($message, $destinatario, $mesa);
             header('Location:/dashboard/user/suasmesas/convite?message=enviado');
         } else {
             echo '<h2>Você não é o mestre dessa mesa!</h2>';
