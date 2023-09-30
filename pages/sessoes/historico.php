@@ -45,10 +45,25 @@
                 <h2 class="card-title text-center">Título da mesa: <?= $mesa['mes_titulo'] ?></h2>
                 <?php foreach ($sessoes as $sessao) { ?>
                     <div class="row">
-                        <p class="col-md-6">Dia da sessão: <?= $sessao['ses_datacalendario'] ?></p>
+                        <p class="col-md-6">Dia da Sessão: <?= $sessao['ses_datacalendario'] ?></p>
                         <p class="col-md-6">Horário: <?= $sessao['ses_horario'] ?></p>
                     </div>
-                <?php } ?>
+                    <?php
+                    if ($userid == $mesa['mes_usu_idmestre']) {
+                    ?>
+                    <button>
+                        <a href="/dashboard/user/sessoes/reagendamento?mes_id=<?= $mesa['mes_id'] ?>">
+                            Editar sessão
+                        </a>
+                    </button>
+                    <button>
+                        <a href="/dashboard/user/apagar?sessao=<?= $sessao['ses_id'] ?>">
+                            Excluir sessão
+                        </a>
+                    </button>
+                <?php
+                    } 
+                } ?>
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <a href="/dashboard/user">

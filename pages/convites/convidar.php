@@ -17,7 +17,7 @@
         font-family: 'Poppins', sans-serif;
     }
     body{
-        background-image: url('nano-giga-interactive-the-dark-forest.jpg');
+        background-image: url('/assets/nano-giga-interactive-the-dark-forest.jpg');
         background-position: center;
         }
     .btn{

@@ -10,48 +10,62 @@
 </head>
 <style>
     body {
-        background-image: url('daniel-rosini-murlocs-rpg-final4.jpg');
-        background-position: center;
-      }
-
-    .container-fluid{
-        opacity: 0.9;
-    }
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .card {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .btn {
+            margin-left: 57px;
+            border-radius: 25px;
+            color:white;
+            width: 150px;
+        }
 </style>
 
 <body>
-    <div class="container-fluid">
-        <div class="row text-center mt-5 mb-3">
-            <!-- <i class="fa fa-user fa-5x addcolor" aria-hidden="true"></i> -->
+<div class="container">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h2>Reagende a sessão</h2>
+            </div>
         </div>
-        <div class="row d-flex justify-content-center align-items-center p-4 ">
-            <div class="col-12 col-md-8 bg-white rounded-5 p-4 border border-success-subtle">
-                
-                <div class="row text-center">
-                    <h3 class="p-3 addcolor">Agende uma sessão com seus amigos</h3>
-                    <a href="/dashboard/mesas" class="text-decoration-none">
-                        <p class="mb-4 text-muted">Voltar</p>
-                    </a>    
-                </div>
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-8">
-                        <form action="/dashboard/user/sessoes/update" method="POST">
-                            <input name="mes_id" type="hidden" value="<?= $_GET['mes_id'] ?>"> 
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-md-6">
+                <div class="card" style="border-color: #198754;">
+                    <div class="card-body">
+                        <form action="/dashboard/user/sessoes/agendar" method="POST">
+                            <input name="mes_id" type="hidden" value="<?= $_GET['mesa']?>">
                             <div class="mb-4 form-floating">
                                 <input type="date" class="form-control" id="data" name="data">
                                 <label for="data" class="form-label">Data</label>
-                              </div>
+                            </div>
                             <div class="mb-4 form-floating">
                                 <input type="time" class="form-control" id="horario" name="horario">
                                 <label for="horario" class="form-label">Horário</label>
                             </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-success addingcolor text-white w-75">Agendar</button>
-                            </div>
+                            
+                            <button type="submit" class="btn btn-success text-white">Agendar</button>
                         </form>
                     </div>
                 </div>
+                <a href="/dashboard/mesas" class="text-decoration-none text-center">
+                    <p class="mb-4 text-muted" style="margin-top: 20px;">Voltar</p>
+                </a>    
             </div>
         </div>
     </div>
