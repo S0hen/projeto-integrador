@@ -11,7 +11,7 @@ if (!hasUser() || !isset($mes_id)) {
     $mesa = Mesas::findById($mes_id);
 
     foreach ($participacoes as $participacao) {
-        if ($mes_id = $participacao['par_mes_id']) {
+        if ($mes_id == $participacao['par_mes_id']) {
             $sessoes = Sessoes::findByMesId($mes_id);
             include('pages/sessoes/historico.php');
             exit();
